@@ -1,15 +1,22 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-// import SimpleSlider from './components/Sliders';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import CardMovies from './components/CardMovies';
 
 const App = () => {
     return (
-        <>
-            <div>
-                {/* <SimpleSlider /> */}
-                <Navbar />
-            </div>
-        </>
+        <BrowserRouter>
+            <Routes>
+                <Route
+                    path="/"
+                    element={<LandingPage />}
+                />
+                <Route
+                    path="/card"
+                    element={<CardMovies />}
+                />
+            </Routes>
+        </BrowserRouter>
     );
 };
 
