@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Search from './Search';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,10 +23,20 @@ const Navbar = () => {
                 <div className={`md:flex items-center justify-center ${isOpen ? 'block' : 'hidden'}`}>
                     <ul className="flex flex-col items-center justify-center gap-5 md:flex md:flex-row">
                         <li>
-                            <button className="">Home</button>
+                            <Link
+                                to="/"
+                                className=""
+                            >
+                                Home
+                            </Link>
                         </li>
                         <li>
-                            <button className="order-1 md:order-1">Categories</button>
+                            <Link
+                                to="/categories"
+                                className="order-1 md:order-1"
+                            >
+                                Categories
+                            </Link>
                         </li>
                         <li>
                             <div className="order-5 md:order-3">
@@ -33,10 +44,20 @@ const Navbar = () => {
                             </div>
                         </li>
                         <li>
-                            <button className="md:order-4">Movies</button>
+                            <Link
+                                to="/movies"
+                                className="md:order-4"
+                            >
+                                Movies
+                            </Link>
                         </li>
                         <li>
-                            <button className="md:order-5">Series</button>
+                            <Link
+                                to="/series"
+                                className="md:order-5"
+                            >
+                                Series
+                            </Link>
                         </li>
                     </ul>
                 </div>

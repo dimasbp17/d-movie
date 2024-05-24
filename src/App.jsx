@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LandingPage from './pages/LandingPage';
 import CardMovies from './components/CardMovies';
+import Home from './pages/home/Home';
 
 const App = () => {
     return (
@@ -9,7 +9,7 @@ const App = () => {
             <Routes>
                 <Route
                     path="/"
-                    element={<LandingPage />}
+                    element={<Home />}
                 />
                 <Route
                     path="/card"
