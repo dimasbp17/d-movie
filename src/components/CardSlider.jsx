@@ -2,14 +2,13 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import CardMovies from './CardMovies';
-import img from '../../public/assets/slider.jpg';
 
-const HeroSlider = () => {
+const CardSlider = () => {
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 1,
-            slidesToSlide: 1, // optional, default to 1.
+            items: 3,
+            slidesToSlide: 3, // optional, default to 1.
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
@@ -27,13 +26,10 @@ const HeroSlider = () => {
             <Carousel
                 responsive={responsive}
                 showDots={false}
-                autoPlaySpeed={1000}
-                infinite={true}
+                autoPlaySpeed={3000}
                 autoPlay={true}
+                infinite={true}
             >
-                {/* <div>
-                    <CardMovies />
-                </div>
                 <div>
                     <CardMovies />
                 </div>
@@ -54,11 +50,17 @@ const HeroSlider = () => {
                 </div>
                 <div>
                     <CardMovies />
-                </div> */}
+                </div>
+                <div>
+                    <CardMovies />
+                </div>
+                <div>
+                    <CardMovies />
+                </div>
             </Carousel>
             ;
         </>
     );
 };
 
-export default HeroSlider;
+export default CardSlider;
