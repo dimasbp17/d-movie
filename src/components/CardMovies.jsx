@@ -5,12 +5,12 @@ import { StarIcon } from '@heroicons/react/24/solid';
 const CardMovies = () => {
     return (
         <>
-            <div className="w-full bg-black rounded-md">
+            <div className="w-full bg-[#181818]">
                 <div className="relative flex items-start justify-start">
                     <img
                         src={john}
                         alt=""
-                        className="w-full rounded-md"
+                        className="w-full rounded-sm"
                     />
                     <div className="absolute px-3 py-1 bg-black opacity-75">
                         <p className="flex items-center gap-1 text-yellow-500">

@@ -11,7 +11,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="w-full text-white bg-[#222831] md:px-20 font-poppins md:py-5 p-4">
+            <div className="w-full text-white bg-[#181818]  md:px-20 font-poppins md:py-5 p-4">
                 <div>
                     <button
                         className="items-end justify-end block ms-auto md:hidden"
@@ -25,7 +25,7 @@ const Navbar = () => {
                         <li>
                             <Link
                                 to="/"
-                                className=""
+                                className="hover:text-yellow-500"
                             >
                                 Home
                             </Link>

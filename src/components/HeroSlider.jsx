@@ -18,7 +18,7 @@ const HeroSlider = () => {
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
-            items: 2,
+            items: 1,
             slidesToSlide: 1, // optional, default to 1.
         },
     };
@@ -27,34 +27,34 @@ const HeroSlider = () => {
             <Carousel
                 responsive={responsive}
                 showDots={false}
-                autoPlaySpeed={1000}
+                autoPlaySpeed={5000}
                 infinite={true}
                 autoPlay={true}
             >
-                {/* <div>
-                    <CardMovies />
+                <div>
+                    <div className="relative">
+                        <img
+                            src={img}
+                            alt=""
+                            className="absolute w-full h-screen bg-cover"
+                        />
+                        <p>dadada</p>
+                    </div>
                 </div>
                 <div>
-                    <CardMovies />
+                    <img
+                        src={img}
+                        alt=""
+                        className="w-full h-screen"
+                    />
                 </div>
                 <div>
-                    <CardMovies />
+                    <img
+                        src={img}
+                        alt=""
+                        className="w-full h-screen"
+                    />
                 </div>
-                <div>
-                    <CardMovies />
-                </div>
-                <div>
-                    <CardMovies />
-                </div>
-                <div>
-                    <CardMovies />
-                </div>
-                <div>
-                    <CardMovies />
-                </div>
-                <div>
-                    <CardMovies />
-                </div> */}
             </Carousel>
             ;
         </>

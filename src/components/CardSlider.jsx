@@ -7,8 +7,8 @@ const CardSlider = () => {
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 3,
-            slidesToSlide: 3, // optional, default to 1.
+            items: 5,
+            slidesToSlide: 1, // optional, default to 1.
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
@@ -29,32 +29,39 @@ const CardSlider = () => {
                 autoPlaySpeed={3000}
                 autoPlay={true}
                 infinite={true}
+                swipeable={true}
             >
-                <div>
+                <div className="mx-1 md:mx-2">
                     <CardMovies />
                 </div>
-                <div>
+                <div className="mx-1 md:mx-2">
                     <CardMovies />
                 </div>
-                <div>
+                <div className="mx-1 md:mx-2">
                     <CardMovies />
                 </div>
-                <div>
+                <div className="mx-1 md:mx-2">
                     <CardMovies />
                 </div>
-                <div>
+                <div className="mx-1 md:mx-2">
                     <CardMovies />
                 </div>
-                <div>
+                <div className="mx-1 md:mx-2">
                     <CardMovies />
                 </div>
-                <div>
+                <div className="mx-1 md:mx-2">
                     <CardMovies />
                 </div>
-                <div>
+                <div className="mx-1 md:mx-2">
                     <CardMovies />
                 </div>
-                <div>
+                <div className="mx-1 md:mx-2">
+                    <CardMovies />
+                </div>
+                <div className="mx-1 md:mx-2">
+                    <CardMovies />
+                </div>
+                <div className="mx-1 md:mx-2">
                     <CardMovies />
                 </div>
             </Carousel>
