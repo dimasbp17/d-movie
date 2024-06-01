@@ -6,7 +6,7 @@ const Search = () => {
             <div className="">
                 <input
                     type="search"
-                    className="rounded-full w-full h-10 lg:h-12 lg:w-[416px] text-black focus:outline-none px-5"
+                    className="w-full h-10 px-3 text-xs text-black rounded-sm lg:h-8 lg:w-52 focus:outline-none"
                     placeholder="Search movies..."
                 />
             </div>

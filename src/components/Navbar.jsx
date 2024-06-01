@@ -11,7 +11,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="w-full text-white bg-[#181818]  md:px-20 font-poppins md:py-5 p-4 shadow-xl shadow-gray-500">
+            <div className="w-full p-4 text-white bg-black shadow-xl md:px-20 font-poppins md:py-5 shadow-gray-500">
                 <div>
                     <button
                         className="items-end justify-end block ms-auto md:hidden"
@@ -20,29 +20,17 @@ const Navbar = () => {
                         {isOpen ? <XMarkIcon className="w-6 h-6 text-white" /> : <Bars3Icon className="w-6 h-6 text-white" />}
                     </button>
                 </div>
-                <div className={`md:flex items-center justify-center ${isOpen ? 'block' : 'hidden'}`}>
+                <div className={`md:flex items-center justify-end ${isOpen ? 'block' : 'hidden'}`}>
                     <ul className="flex flex-col items-center justify-center gap-5 md:flex md:flex-row">
                         <li>
                             <Link
                                 to="/"
-                                className="hover:text-[#5AB2FF]"
+                                className="hover:text-[#FF0000] duration-300"
                             >
                                 Home
                             </Link>
                         </li>
-                        <li>
-                            <Link
-                                to="/categories"
-                                className="order-1 md:order-1"
-                            >
-                                Categories
-                            </Link>
-                        </li>
-                        <li>
-                            <div className="order-5 md:order-3">
-                                <Search />
-                            </div>
-                        </li>
+
                         <li>
                             <Link
                                 to="/movies"
@@ -58,6 +46,11 @@ const Navbar = () => {
                             >
                                 Series
                             </Link>
+                        </li>
+                        <li>
+                            <div className="order-5 md:order-3">
+                                <Search />
+                            </div>
                         </li>
                     </ul>
                 </div>

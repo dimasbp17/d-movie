@@ -3,6 +3,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import CardMovies from './CardMovies';
 import img from '../../public/assets/slider.jpg';
+import avatar from '../../public/assets/avatar.png';
 
 const HeroSlider = () => {
     const responsive = {
@@ -26,33 +27,36 @@ const HeroSlider = () => {
         <>
             <Carousel
                 responsive={responsive}
-                showDots={false}
+                showDots={true}
                 autoPlaySpeed={5000}
                 infinite={true}
-                autoPlay={true}
+                autoPlay={false}
             >
                 <div>
-                    <div className="relative">
+                    <div className="relative flex items-center justify-center">
+                        <div className="absolute flex flex-col">
+                            <p className="px-20 text-4xl font-bold text-white">Avatar: The Way of Water</p>
+                        </div>
+
                         <img
-                            src={img}
+                            src={avatar}
                             alt=""
-                            className="absolute w-full h-screen bg-cover"
+                            className="w-full h-[400px] md:h-[744px] object-cover"
                         />
-                        <p>dadada</p>
                     </div>
                 </div>
                 <div>
                     <img
-                        src={img}
+                        src={avatar}
                         alt=""
-                        className="w-full h-screen"
+                        className="w-full h-[400px] md:h-[744px] object-cover"
                     />
                 </div>
                 <div>
                     <img
                         src={img}
                         alt=""
-                        className="w-full h-screen"
+                        className="w-full h-[400px] md:h-[744px] object-cover"
                     />
                 </div>
             </Carousel>
