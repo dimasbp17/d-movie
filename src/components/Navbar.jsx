@@ -2,11 +2,21 @@ import React, { useState } from 'react';
 import Search from './Search';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
+import movies from '../../public/assets/dmovies.png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [active, setActive] = useState('Home');
+
     const toogleNavbar = () => {
         setIsOpen(!isOpen);
+    };
+
+    const handleMenuClick = (menuName) => {
+        setActive(menuName);
+    };
+    const isActiveMenu = (menuName) => {
+        return active === menuName ? 'text-[#FF0000]' : 'hover:text-[#FF0000] duration-300';
     };
 
     return (
@@ -20,12 +30,22 @@ const Navbar = () => {
                         {isOpen ? <XMarkIcon className="w-6 h-6 text-white" /> : <Bars3Icon className="w-6 h-6 text-white" />}
                     </button>
                 </div>
-                <div className={`md:flex items-center justify-end ${isOpen ? 'block' : 'hidden'}`}>
-                    <ul className="flex flex-col items-center justify-center gap-5 md:flex md:flex-row">
+                <div className={`md:flex items-center ${isOpen ? 'block' : 'hidden'}`}>
+                    <Link to={'/'}>
+                        <img
+                            src={movies}
+                            alt=""
+                            className="hidden w-36 md:block"
+                        />
+                    </Link>
+                    <ul className="flex flex-col items-center justify-center gap-10 md:flex md:flex-row ms-auto">
                         <li>
                             <Link
                                 to="/"
-                                className="hover:text-[#FF0000] duration-300"
+                                className={`${isActiveMenu('Home')}`}
+                                onClick={() => {
+                                    handleMenuClick('Home');
+                                }}
                             >
                                 Home
                             </Link>
@@ -34,7 +54,10 @@ const Navbar = () => {
                         <li>
                             <Link
                                 to="/movies"
-                                className="md:order-4"
+                                className={`${isActiveMenu('Movies')}`}
+                                onClick={() => {
+                                    handleMenuClick('Movies');
+                                }}
                             >
                                 Movies
                             </Link>
@@ -42,7 +65,10 @@ const Navbar = () => {
                         <li>
                             <Link
                                 to="/series"
-                                className="md:order-5"
+                                className={`${isActiveMenu('Series')}`}
+                                onClick={() => {
+                                    handleMenuClick('Series');
+                                }}
                             >
                                 Series
                             </Link>
