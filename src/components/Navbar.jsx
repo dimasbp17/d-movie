@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 import Search from './Search';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import movies from '../../public/assets/dmovies.png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [active, setActive] = useState('Home');
+    const [active, setActive] = useState('');
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const toogleNavbar = () => {
         setIsOpen(!isOpen);
     };
 
-    const handleMenuClick = (menuName) => {
+    const handleMenuClick = (menuName, path) => {
         setActive(menuName);
+        navigate(path);
     };
     const isActiveMenu = (menuName) => {
-        return active === menuName ? 'text-[#FF0000]' : 'hover:text-[#FF0000] duration-300';
+        return location.active === menuName ? 'text-[#FF0000]' : 'hover:text-[#FF0000] duration-300';
     };
 
     return (
@@ -40,38 +44,38 @@ const Navbar = () => {
                     </Link>
                     <ul className="flex flex-col items-center justify-center gap-10 md:flex md:flex-row ms-auto">
                         <li>
-                            <Link
-                                to="/"
-                                className={`${isActiveMenu('Home')}`}
+                            <button
+                                className={`${isActiveMenu('home')}`}
                                 onClick={() => {
-                                    handleMenuClick('Home');
+                                    handleMenuClick('home');
+                                    navigate('/');
                                 }}
                             >
                                 Home
-                            </Link>
+                            </button>
                         </li>
 
                         <li>
-                            <Link
-                                to="/movies"
-                                className={`${isActiveMenu('Movies')}`}
+                            <button
+                                className={`${isActiveMenu('movies')}`}
                                 onClick={() => {
-                                    handleMenuClick('Movies');
+                                    handleMenuClick('movies');
+                                    navigate('/movies');
                                 }}
                             >
                                 Movies
-                            </Link>
+                            </button>
                         </li>
                         <li>
-                            <Link
-                                to="/series"
-                                className={`${isActiveMenu('Series')}`}
+                            <button
+                                className={`${isActiveMenu('series')}`}
                                 onClick={() => {
-                                    handleMenuClick('Series');
+                                    handleMenuClick('series');
+                                    navigate('/series');
                                 }}
                             >
                                 Series
-                            </Link>
+                            </button>
                         </li>
                         <li>
                             <div className="order-5 md:order-3">

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import axios from 'axios';
 
-const Home = () => {
+const Movies = () => {
     useEffect(() => {
         const showdata = async () => {
             try {
@@ -28,16 +28,14 @@ const Home = () => {
                 <div>
                     <Navbar />
                 </div>
-                <div>
-                    <HeroSlider />
-                </div>
+
                 <div className="px-4 md:px-20">
                     <div>
                         <div className="flex items-center justify-between my-5">
-                            <p className="text-base font-bold text-white md:text-2xl">Popular Movies</p>
+                            <p className="text-2xl font-bold text-white">Popular Movies</p>
                             <Link
                                 to={'/popularmovies'}
-                                className="px-3 md:px-5 py-1 text-xs font-normal md:font-medium text-white bg-[#FF0000] hover:bg-red-500 rounded-sm duration-300"
+                                className="px-5 py-1 font-medium text-white bg-[#FF0000] hover:bg-red-500 rounded-sm duration-300"
                             >
                                 View All
                             </Link>
@@ -48,10 +46,10 @@ const Home = () => {
                     </div>
                     <div>
                         <div className="flex items-center justify-between my-5">
-                            <p className="text-base font-bold text-white md:text-2xl">Currently Playing</p>
+                            <p className="text-2xl font-bold text-white">Currently Playing</p>
                             <Link
                                 to={'/popularmovies'}
-                                className="px-3 md:px-5 py-1 text-xs font-normal md:font-medium text-white bg-[#FF0000] hover:bg-red-500 rounded-sm duration-300"
+                                className="px-5 py-1 font-medium text-white bg-[#FF0000] hover:bg-red-500 rounded-sm duration-300"
                             >
                                 View All
                             </Link>
@@ -69,4 +67,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Movies;
