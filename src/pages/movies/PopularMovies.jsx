@@ -1,9 +1,13 @@
 import React from 'react';
+import Navbar from '../../components/Navbar';
 
 const PopularMovies = () => {
     return (
         <>
-            <div>PopularMovies</div>;
+            <div>
+                <Navbar />
+            </div>
+            ;
         </>
     );
 };

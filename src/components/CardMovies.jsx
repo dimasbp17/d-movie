@@ -5,12 +5,12 @@ import { StarIcon, CalendarDaysIcon } from '@heroicons/react/24/solid';
 const CardMovies = () => {
     return (
         <>
-            <div className="w-full bg-[#181818] bg-transparent rounded-lg">
-                <div className="relative flex items-start justify-start">
+            <div className="w-52 bg-[#181818] bg-transparent rounded-lg">
+                <div className="relative flex items-center justify-center">
                     <img
                         src={john}
                         alt=""
-                        className="object-cover w-full"
+                        className="inset-0 object-cover w-52"
                     />
                 </div>
                 <div className="flex flex-col gap-2 py-2 text-white">

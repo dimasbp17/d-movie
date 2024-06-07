@@ -4,6 +4,8 @@ import CardMovies from './components/CardMovies';
 import Home from './pages/home/Home';
 import Movies from './pages/movies/Movies';
 import Navbar from './components/Navbar';
+import PopularMovies from './pages/movies/PopularMovies';
+import CardSlider from './components/CardSlider';
 
 const App = () => {
     return (
@@ -20,6 +22,14 @@ const App = () => {
                 <Route
                     path="/movies"
                     element={<Movies />}
+                />
+                <Route
+                    path="/popularmovies"
+                    element={<PopularMovies />}
+                />
+                <Route
+                    path="/cardslider"
+                    element={<CardSlider />}
                 />
             </Routes>
         </BrowserRouter>
