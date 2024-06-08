@@ -60,7 +60,7 @@ const Home = () => {
                             <p className="text-base font-bold text-white md:text-2xl">Popular Movies</p>
                             <Link
                                 to={'/popularmovies'}
-                                className="px-3 md:px-5 py-1 text-xs font-normal md:font-medium text-white bg-[#FF0000] hover:bg-red-500 rounded-sm duration-300"
+                                className="px-3 py-1 text-xs font-normal text-white duration-300 rounded-sm md:px-5 md:font-medium bg-red hover:bg-red-500"
                             >
                                 View All
                             </Link>
