@@ -30,20 +30,20 @@ const Home = () => {
             },
         ],
     };
-    useEffect(() => {
-        const showdata = async () => {
-            try {
-                const response = await axios.get('https://fakestoreapi.com/products');
+    // useEffect(() => {
+    //     const showdata = async () => {
+    //         try {
+    //             const response = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=e2368d17c6fd64b3c890546a220c68a5');
 
-                // setData(response.data);
-                console.log(response);
-            } catch (error) {
-                console.error('Error fetching user:', error);
-            }
-        };
+    //             // setData(response.data);
+    //             console.log(response);
+    //         } catch (error) {
+    //             console.error('Error fetching user:', error);
+    //         }
+    //     };
 
-        showdata();
-    }, []);
+    //     showdata();
+    // }, []);
 
     return (
         <>

@@ -7,7 +7,6 @@ const PopularMovies = () => {
             <div>
                 <Navbar />
             </div>
-            ;
         </>
     );
 };
