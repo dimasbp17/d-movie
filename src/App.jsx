@@ -5,7 +5,7 @@ import Home from './pages/home/Home';
 import Movies from './pages/movies/Movies';
 import Navbar from './components/Navbar';
 import PopularMovies from './pages/movies/PopularMovies';
-import CardSlider from './components/CardSlider';
+import CardSlider from './components/slider/card-slider/CardSlider';
 
 const App = () => {
     return (

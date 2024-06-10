@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import Navbar from '../../components/Navbar';
-import CardSlider from '../../components/CardSlider';
-import HeroSlider from '../../components/HeroSlider';
+import CardSlider from '../../components/slider/card-slider/CardSlider';
+import HeroSlider from '../../components/slider/hero-slider/HeroSlider';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import axios from 'axios';
 import CardMovies from '../../components/CardMovies';
-import ArrowButton from '../../components/ArrowButton';
+import ArrowButton from '../../components/slider/card-slider/ArrowButton';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -55,12 +55,12 @@ const Home = () => {
                     <HeroSlider />
                 </div>
                 <div className="px-4 md:px-20">
-                    <div>
+                    <div className="mt-10">
                         <div className="flex items-center justify-between my-5">
                             <p className="text-base font-bold text-white md:text-2xl">Popular Movies</p>
                             <Link
                                 to={'/popularmovies'}
-                                className="px-3 py-1 text-xs font-normal text-white duration-300 rounded-sm md:px-5 md:font-medium bg-red hover:bg-red-500"
+                                className="px-3 py-2 text-xs font-normal text-white duration-200 rounded-sm md:px-5 md:font-medium bg-primary hover:shadow-md hover:shadow-red-600"
                             >
                                 View All
                             </Link>
@@ -94,12 +94,12 @@ const Home = () => {
                             </Slider>
                         </div>
                     </div>
-                    <div>
+                    <div className="my-20">
                         <div className="flex items-center justify-between my-5">
                             <p className="text-base font-bold text-white md:text-2xl">Currently Playing</p>
                             <Link
                                 to={'/currentlyplaying'}
-                                className="px-3 md:px-5 py-1 text-xs font-normal md:font-medium text-white bg-[#FF0000] hover:bg-red-500 rounded-sm duration-300"
+                                className="px-3 md:px-5 py-2 text-xs font-normal md:font-medium text-white bg-[#FF0000] hover:bg-red-500 rounded-sm duration-300"
                             >
                                 View All
                             </Link>
@@ -109,7 +109,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="mt-10">
                     <Footer />
                 </div>
             </div>

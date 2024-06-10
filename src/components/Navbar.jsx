@@ -25,7 +25,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="w-full p-4 text-white bg-black md:px-20 font-poppins md:py-5">
+            <div className="w-full p-4 text-white bg-black md:px-10 lg:px-20 font-poppins md:py-5">
                 <div>
                     <button
                         className="items-end justify-end block ms-auto md:hidden"
@@ -78,7 +78,7 @@ const Navbar = () => {
                             </button>
                         </li>
                         <li>
-                            <div className="order-5 md:order-3">
+                            <div className="order-5 w-full md:order-3">
                                 <Search />
                             </div>
                         </li>

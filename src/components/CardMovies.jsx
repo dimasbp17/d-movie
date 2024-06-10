@@ -17,12 +17,12 @@ const CardMovies = () => {
                     <p className="font-medium truncate">John Wick The King of Stunmant</p>
                     <div className="flex gap-3 text-xs">
                         <span>
-                            <CalendarDaysIcon class="size-4 text-white" />
+                            <CalendarDaysIcon className="text-white size-4" />
                         </span>
                         <span>20-04-2020</span>
                     </div>
                     <div className="flex items-center gap-3 text-xs text-white">
-                        <StarIcon class="size-4" />
+                        <StarIcon className="size-4" />
                         <span className="text-xs">5.5</span>
                     </div>
                 </div>

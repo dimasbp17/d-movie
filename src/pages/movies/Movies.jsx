@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '../../components/Navbar';
-import CardSlider from '../../components/CardSlider';
-import HeroSlider from '../../components/HeroSlider';
+import CardSlider from '../../components/slider/card-slider/CardSlider';
+import HeroSlider from '../../components/slider/hero-slider/HeroSlider';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import axios from 'axios';
@@ -25,7 +25,7 @@ const Movies = () => {
     return (
         <>
             <div className="bg-black font-poppins">
-                <div>
+                <div className="sticky top-0 z-50">
                     <Navbar />
                 </div>
 

@@ -1,9 +1,8 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import CardMovies from './CardMovies';
-import img from '../../public/assets/slider.jpg';
-import avatar from '../../public/assets/avatar.png';
+import img from '../../../../public/assets/slider.jpg';
+import avatar from '../../../../public/assets/avatar.png';
 
 const HeroSlider = () => {
     const responsive = {
@@ -14,8 +13,8 @@ const HeroSlider = () => {
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            slidesToSlide: 2, // optional, default to 1.
+            items: 1,
+            slidesToSlide: 1, // optional, default to 1.
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
@@ -30,7 +29,7 @@ const HeroSlider = () => {
                 showDots={true}
                 autoPlaySpeed={5000}
                 infinite={true}
-                autoPlay={false}
+                autoPlay={true}
             >
                 <div>
                     <div className="relative flex items-center justify-center">
