@@ -48,7 +48,7 @@ const Home = () => {
     return (
         <>
             <div className="bg-black font-poppins">
-                <div>
+                <div className="sticky top-0 z-50">
                     <Navbar />
                 </div>
                 <div>

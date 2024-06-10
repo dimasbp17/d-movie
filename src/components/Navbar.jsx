@@ -25,7 +25,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="w-full p-4 text-white bg-black shadow-sm md:px-20 font-poppins md:py-5 shadow-gray-500">
+            <div className="w-full p-4 text-white bg-black md:px-20 font-poppins md:py-5">
                 <div>
                     <button
                         className="items-end justify-end block ms-auto md:hidden"
