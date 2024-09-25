@@ -1,10 +1,17 @@
 import axios from 'axios';
 
-const apiKey = process.env.REACT_APP_APIKEY;
-const baseUrl = process.env.REACT_APP_BASEURL;
+const apiKey = import.meta.env.VITE_APIKEY;
+const baseUrl = import.meta.env.VITE_BASEURL;
 
 const getMovieList = async () => {
-    const movie = await axios.get(`${baseUrl}/movie/popular?api_key=${apiKey}`);
-    console.log(movie);
+  try {
+    const popularMovies = await axios.get(
+      `${baseUrl}/movie/popular?api_key=${apiKey}`
+    );
+    console.log(popularMovies.data.results);
+  } catch (error) {
+    console.error('Error fetching movie list:', error);
+  }
 };
+
 export default getMovieList;
