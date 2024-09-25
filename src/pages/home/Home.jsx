@@ -10,7 +10,7 @@ import ArrowButton from '../../components/slider/card-slider/ArrowButton';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import getMovieList from '../../services/api';
+import { getMovieList } from '../../services/api';
 
 const Home = () => {
   const settings = {
