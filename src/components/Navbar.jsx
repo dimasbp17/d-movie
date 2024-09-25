@@ -20,7 +20,7 @@ const Navbar = () => {
         navigate(path);
     };
     const isActiveMenu = (menuName) => {
-        return location.active === menuName ? 'text-[#FF0000]' : 'hover:text-[#FF0000] duration-300';
+        return location.active === menuName ? 'text-primary' : 'hover:text-primary duration-300';
     };
 
     return (
