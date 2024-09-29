@@ -10,7 +10,6 @@ import ArrowButton from '../../components/slider/card-slider/ArrowButton';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { getMovieList } from '../../services/api';
 
 const Home = () => {
   const settings = {
@@ -48,13 +47,9 @@ const Home = () => {
   //     showdata();
   //   }, []);
 
-  useEffect(() => {
-    getMovieList();
-  });
-
   return (
     <>
-      <div className="bg-black font-poppins">
+      <div className=" font-poppins">
         <div className="sticky top-0 z-50">
           <Navbar />
         </div>
