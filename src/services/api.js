@@ -3,12 +3,23 @@ import axios from 'axios';
 const apiKey = import.meta.env.VITE_APIKEY;
 const baseUrl = import.meta.env.VITE_BASEURL;
 
-export const getMovieList = async () => {
+export const genreMovies = async () => {
+  try {
+    const genre = await axios.get(
+      `${baseUrl}/genre/movie/list?api_key=${apiKey}`
+    );
+    return genre.data;
+  } catch (error) {
+    console.error('Error fetching genre movie:', error);
+  }
+};
+
+export const getPopularMovies = async (page = 1) => {
   try {
     const popularMovies = await axios.get(
-      `${baseUrl}/movie/popular?api_key=${apiKey}`
+      `${baseUrl}/movie/popular?api_key=${apiKey}&page=${page}`
     );
-    console.log(popularMovies.data.results);
+    return popularMovies.data;
   } catch (error) {
     console.error('Error fetching movie list:', error);
   }
