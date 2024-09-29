@@ -6,12 +6,12 @@ import { IoStar } from 'react-icons/io5';
 const CardMovies = ({ poster, alt, title, releaseDate, rating, genre }) => {
   return (
     <>
-      <div className=" bg-[#333333]">
+      <div className="bg-[#333333] lg:h-[428px]">
         <div className="relative flex items-center justify-center">
           <img
             src={poster}
             alt={alt}
-            className="inset-0 object-cover h-[300px] w-full"
+            className="inset-0 object-cover lg:h-[300px] w-full"
           />
         </div>
         <div className="flex flex-col gap-2 p-2 text-white">
@@ -24,7 +24,7 @@ const CardMovies = ({ poster, alt, title, releaseDate, rating, genre }) => {
             <IoStar className="size-3 text-[#FFD700]" />
             <span className="text-xs">{rating} / 10</span>
           </div>
-          <div className="text-xs text-gray-300">{genre}</div>
+          <div className="text-xs text-gray-400">{genre}</div>
         </div>
       </div>
     </>
