@@ -5,10 +5,10 @@ import Home from './pages/home/Home';
 import Navbar from './components/Navbar';
 import PopularMovies from './pages/movies/PopularMovies';
 import CardSlider from './components/slider/card-slider/CardSlider';
-import DetailMovie from './pages/movies/DetailMovie';
 import TopRatedMovies from './pages/movies/TopRatedMovies';
 import NowPlaying from './pages/movies/NowPlaying';
 import UpcomingMovies from './pages/movies/UpcomingMovies';
+import DetailMovie from './pages/movies/DetailMovie';
 
 const App = () => {
   return (
@@ -40,12 +40,12 @@ const App = () => {
           element={<UpcomingMovies />}
         />
         <Route
-          path="/cardslider"
-          element={<CardSlider />}
+          path="/movies/detail-movies"
+          element={<DetailMovie />}
         />
         <Route
-          path="/movies/detail-movie"
-          element={<DetailMovie />}
+          path="/cardslider"
+          element={<CardSlider />}
         />
       </Routes>
     </BrowserRouter>
