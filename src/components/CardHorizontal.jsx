@@ -1,35 +1,36 @@
 import React from 'react';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { IoStar } from 'react-icons/io5';
+import contoh from '../../public/assets/avatar.png';
 
-const CardMovies = ({ poster, alt, title, releaseDate, rating, genre }) => {
+const CardHorizontal = ({ poster, alt, title, release, rating, genre }) => {
   return (
     <>
       <div className="bg-[#333333]">
-        <div className="relative flex items-center justify-center">
+        <div className="relative">
           <img
             src={poster}
             alt={alt}
-            className="inset-0 object-cover lg:h-[300px] w-full"
+            className="object-cover w-full"
           />
         </div>
         <div className="flex flex-col gap-2 p-2 text-white">
           <p className="truncate">{title}</p>
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs">
+            <div className="flex items-center gap-1 text-xs">
               <FaCalendarAlt className="text-[#FFD700] size-3" />
-              <span className="text-[10px] lg:text-xs">{releaseDate}</span>
+              <span>{release}</span>
             </div>
-            <div className="flex items-center gap-2 text-white">
+            <div className="flex items-center gap-1 text-white">
               <IoStar className="size-3 text-[#FFD700]" />
-              <span className="text-[10px] lg:text-xs">{rating} / 10</span>
+              <span className="text-xs">{rating} / 10</span>
             </div>
           </div>
-          <div className="text-[10px] text-gray-400">{genre}</div>
+          <div className="text-xs text-gray-400">{genre}</div>
         </div>
       </div>
     </>
   );
 };
 
-export default CardMovies;
+export default CardHorizontal;

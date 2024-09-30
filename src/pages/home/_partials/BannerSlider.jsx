@@ -2,31 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import banner from '../../../../public/assets/avatar.png';
 import { genreMovies, getPopularMovies } from '../../../services/api';
 import ArrowButtonBanner from './ArrowButtonBanner';
-
-const CustomPrevArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', left: '10px', zIndex: 1 }}
-      onClick={onClick}
-    />
-  );
-};
-
-const CustomNextArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', right: '10px', zIndex: 1 }}
-      onClick={onClick}
-    />
-  );
-};
 
 const BannerSlider = () => {
   const [banners, setBanners] = useState([]);
@@ -35,7 +12,6 @@ const BannerSlider = () => {
   useEffect(() => {
     getPopularMovies().then((data) => {
       setBanners(data.results);
-      // console.log(data.results);
     });
     genreMovies().then((response) => {
       setGenres(response.genres);
@@ -43,11 +19,13 @@ const BannerSlider = () => {
   }, []);
 
   const getGenreNames = (genreIds) => {
-    return genreIds
-      .map((id) => genres.find((genre) => genre.id === id)?.name)
-      .filter(Boolean)
-      .slice(0, 3)
-      .join(', ');
+    return (
+      genreIds
+        .map((id) => genres.find((genre) => genre.id === id)?.name)
+        .filter(Boolean)
+        // .slice(0, 3)
+        .join(', ')
+    );
   };
 
   const baseImageUrl = import.meta.env.VITE_BASEIMGURL;
@@ -79,13 +57,7 @@ const BannerSlider = () => {
                 className="object-cover w-full h-[500px]"
               />
 
-              {/* <img
-                src={`${baseImageUrl}/${banner.poster_path}`}
-                alt=""
-                className="absolute object-cover h-[250px] w-[150px] top-10 left-10"
-              /> */}
-
-              <div className="absolute text-white top-60 left-20 max-w-[800px]">
+              <div className="absolute text-white top-60 left-10 lg:left-20 max-w-[800px]">
                 <h1 className="text-4xl font-bold">{banner.title}</h1>
                 <div className="flex items-center my-2 text-sm">
                   <h6 className="text-gray-300 ">{banner.release_date}</h6>
@@ -94,7 +66,7 @@ const BannerSlider = () => {
                     {getGenreNames(banner.genre_ids)}
                   </h6>
                 </div>
-                <span>{banner.overview}</span>
+                <span className="text-xs lg:text-base">{banner.overview}</span>
               </div>
             </div>
           ))}

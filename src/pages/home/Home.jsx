@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer';
@@ -7,8 +7,29 @@ import 'slick-carousel/slick/slick-theme.css';
 import BannerSlider from './_partials/BannerSlider';
 import NowPlayingSlider from './_partials/NowPlayingSlider';
 import { Button } from '@material-tailwind/react';
+import CardHorizontal from '../../components/CardHorizontal';
+import PopularMoviesSlider from './_partials/PopularMoviesSlider';
+import GenreList from '../../components/GenreList';
+import { genreMovies, getDiscoverMovies } from '../../services/api';
 
 const Home = () => {
+  const [discoverMovies, setDiscoverMovies] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState(28);
+  useEffect(() => {
+    if (selectedGenre) {
+      getDiscoverMovies(selectedGenre).then((data) => {
+        setDiscoverMovies(data.results);
+      });
+    }
+
+    genreMovies().then((response) => {
+      setGenres(response.genres);
+    });
+  }, [selectedGenre]);
+
+  const baseImageUrl = import.meta.env.VITE_BASEIMGURL;
+
   return (
     <>
       <div className=" font-poppins">
@@ -51,6 +72,35 @@ const Home = () => {
                   View All
                 </Button>
               </Link>
+            </div>
+            <div>
+              <PopularMoviesSlider />
+            </div>
+          </div>
+
+          <div className="my-20">
+            <div className="flex items-center justify-between my-5">
+              <p className="text-base font-bold text-white md:text-2xl">
+                Discover Movies
+              </p>
+            </div>
+            <div>
+              <GenreList
+                genres={genres}
+                onSelectGenre={setSelectedGenre}
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-5 my-5 lg:grid-cols-4">
+              {discoverMovies.map((movie) => (
+                <CardHorizontal
+                  poster={`${baseImageUrl}/${movie.backdrop_path}`}
+                  alt={movie.title}
+                  title={movie.title}
+                  release={movie.release_date}
+                  rating={movie.vote_average.toFixed(1)}
+                  // genre={getGenreNames(movie.genre_ids)}
+                />
+              ))}
             </div>
           </div>
         </div>
