@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
-import { genreMovies, getTopRatedMovies } from '../../services/api';
+import { genreMovies, getUpcomingMovies } from '../../services/api';
 import CardMovies from '../../components/CardMovies';
 import Pagination from '../../components/Pagination';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/Loading';
 
-const TopRatedMovies = () => {
-  const [topRatedMovies, setTopRatedMovies] = useState([]);
+const UpcomingMovies = () => {
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [dateRange, setDateRange] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    getTopRatedMovies(currentPage).then((data) => {
-      setTopRatedMovies(data.results);
+    getUpcomingMovies(currentPage).then((data) => {
+      setUpcomingMovies(data.results);
       setTotalPages(data.total_pages);
+      setDateRange(data.dates);
       setLoading(false);
     });
 
@@ -55,11 +57,18 @@ const TopRatedMovies = () => {
         <Loading />
       ) : (
         <div className="container p-4 mx-auto md:p-0">
-          <h1 className="my-10 text-2xl font-bold text-white font-poppins">
-            Top Rated Movies
+          <h1 className="mt-10 text-2xl font-bold text-white font-poppins">
+            Upcoming Movies
           </h1>
+          {dateRange && (
+            <p className="my-5 text-white">
+              Showing movies from{' '}
+              <span className="text-[#FFD93D]">{dateRange.minimum}</span> to{' '}
+              <span className="text-[#FFD93D]">{dateRange.maximum}</span>
+            </p>
+          )}
           <div className="grid grid-cols-2 gap-5 lg:grid-cols-5">
-            {topRatedMovies.map((movie, index) => (
+            {upcomingMovies.map((movie, index) => (
               <div key={index}>
                 <Link to={'/'}>
                   <CardMovies
@@ -88,4 +97,4 @@ const TopRatedMovies = () => {
   );
 };
 
-export default TopRatedMovies;
+export default UpcomingMovies;
