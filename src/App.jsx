@@ -40,7 +40,7 @@ const App = () => {
           element={<UpcomingMovies />}
         />
         <Route
-          path="/movies/detail-movies"
+          path="/movies/detail-movies/:id"
           element={<DetailMovie />}
         />
         <Route

@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import avatar from '../../../public/assets/avatar.png';
+import { genreMovies, getDetailMovie } from '../../services/api';
+import { useParams } from 'react-router-dom';
 
 const DetailMovie = () => {
+  const { id } = useParams();
+  const [detailMovie, setDetailMovie] = useState({});
+
+  useEffect(() => {
+    getDetailMovie(id).then((data) => {
+      setDetailMovie(data);
+      console.log(data);
+    });
+  }, [id]);
+  const baseImageUrl = 'https://image.tmdb.org/t/p/original';
+
   return (
     <>
       <div>
@@ -12,26 +25,14 @@ const DetailMovie = () => {
         <div className="w-full">
           <div className="relative">
             <img
-              src={avatar}
+              src={`${baseImageUrl}/${detailMovie.backdrop_path}`}
               alt=""
-              className="object-cover h-screen"
+              className="object-cover w-full h-screen"
             />
+            <div className="absolute inset-0 w-full bg-black/70"></div>
           </div>
         </div>
-        <div className="container mx-auto text-white">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi error
-          reiciendis fuga numquam delectus recusandae similique quo ad
-          voluptates itaque modi, sed perspiciatis fugiat? Tempore possimus
-          dignissimos quae sapiente, saepe perspiciatis iste adipisci labore
-          culpa nulla ea facere consequatur eveniet. Non facilis magnam
-          aspernatur nostrum ratione eveniet iste reiciendis nesciunt a mollitia
-          tenetur vel, aliquam, unde commodi ex, optio possimus excepturi nihil
-          labore! Sint necessitatibus illum aliquid cum qui consequuntur
-          deserunt beatae corrupti. Accusantium incidunt officiis aut vel illum
-          tenetur. Velit, praesentium corporis ipsam nostrum, inventore ipsa sed
-          reiciendis quae adipisci laudantium officia veniam nemo odit
-          consequatur. Optio, impedit ad.
-        </div>
+        <div className="container mx-auto text-white">{detailMovie.title}</div>
       </div>
     </>
   );
