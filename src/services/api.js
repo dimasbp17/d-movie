@@ -69,3 +69,12 @@ export const getDiscoverMovies = async (id) => {
     console.error('Error fetching movie list:', error);
   }
 };
+
+export const getDetailMovie = async (id) => {
+  try {
+    const detail = await axios.get(`${baseUrl}/movie/${id}?api_key=${apiKey}`);
+    return detail.data;
+  } catch (error) {
+    console.error('Error fetching movie list:', error);
+  }
+};

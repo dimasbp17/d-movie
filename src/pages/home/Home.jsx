@@ -11,6 +11,7 @@ import CardHorizontal from '../../components/CardHorizontal';
 import PopularMoviesSlider from './_partials/PopularMoviesSlider';
 import GenreList from '../../components/GenreList';
 import { genreMovies, getDiscoverMovies } from '../../services/api';
+import { FaFire } from 'react-icons/fa';
 
 const Home = () => {
   const [discoverMovies, setDiscoverMovies] = useState([]);
@@ -33,7 +34,7 @@ const Home = () => {
   return (
     <>
       <div className=" font-poppins">
-        <div className="sticky top-0 z-50">
+        <div>
           <Navbar />
         </div>
         <div className="z-50">
@@ -61,8 +62,8 @@ const Home = () => {
 
           <div className="my-20">
             <div className="flex items-center justify-between my-5">
-              <p className="text-base font-bold text-white md:text-2xl">
-                Popular Movies
+              <p className="flex items-center gap-2 text-base font-bold text-white md:text-2xl">
+                <FaFire /> Popular Movies
               </p>
               <Link to={'/movies/popular-movies'}>
                 <Button
@@ -90,7 +91,7 @@ const Home = () => {
                 onSelectGenre={setSelectedGenre}
               />
             </div>
-            <div className="grid grid-cols-2 gap-5 my-5 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-5 my-5 lg:grid-cols-5">
               {discoverMovies.map((movie) => (
                 <CardHorizontal
                   poster={`${baseImageUrl}/${movie.backdrop_path}`}

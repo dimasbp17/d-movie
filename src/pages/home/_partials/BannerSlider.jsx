@@ -28,7 +28,7 @@ const BannerSlider = () => {
     );
   };
 
-  const baseImageUrl = import.meta.env.VITE_BASEIMGURL;
+  const baseImageUrl = 'https://image.tmdb.org/t/p/original';
 
   const settings = {
     dots: false, // Menampilkan titik navigasi di bawah slider
@@ -44,20 +44,22 @@ const BannerSlider = () => {
   };
   return (
     <>
-      <div className="slider-container">
+      <div className="w-full h-screen overflow-hidden slider-container">
         <Slider {...settings}>
           {banners.map((banner, index) => (
             <div
               key={index}
-              className="relative"
+              className="relative w-full"
             >
               <img
                 src={`${baseImageUrl}/${banner.backdrop_path}`}
-                alt="Slide 1"
-                className="object-cover w-full h-[500px]"
+                alt={banner.title}
+                className="object-cover object-top w-full h-screen"
+                loading="lazy"
               />
+              <div className="absolute inset-0 left-0 w-3/4 h-full bg-gradient-to-r from-black to-transparent"></div>
 
-              <div className="absolute text-white top-60 left-10 lg:left-20 max-w-[800px]">
+              <div className="absolute text-white top-60 left-10 lg:left-20 max-w-[700px]">
                 <h1 className="text-4xl font-bold">{banner.title}</h1>
                 <div className="flex items-center my-2 text-sm">
                   <h6 className="text-gray-300 ">{banner.release_date}</h6>
@@ -66,7 +68,9 @@ const BannerSlider = () => {
                     {getGenreNames(banner.genre_ids)}
                   </h6>
                 </div>
-                <span className="text-xs lg:text-base">{banner.overview}</span>
+                <div className="text-xs text-justify lg:text-base">
+                  {banner.overview}
+                </div>
               </div>
             </div>
           ))}

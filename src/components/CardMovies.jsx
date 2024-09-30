@@ -16,11 +16,11 @@ const CardMovies = ({ poster, alt, title, releaseDate, rating, genre }) => {
         <div className="flex flex-col gap-2 p-2 text-white">
           <p className="truncate">{title}</p>
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs">
+            <div className="flex items-center gap-1 text-xs">
               <FaCalendarAlt className="text-[#FFD700] size-3" />
               <span className="text-[10px] lg:text-xs">{releaseDate}</span>
             </div>
-            <div className="flex items-center gap-2 text-white">
+            <div className="flex items-center gap-1 text-white">
               <IoStar className="size-3 text-[#FFD700]" />
               <span className="text-[10px] lg:text-xs">{rating} / 10</span>
             </div>
