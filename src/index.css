@@ -11,3 +11,7 @@
 .slick-list {
   padding: 0 0px;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Untuk Chrome, Safari, dan browser berbasis Webkit */
+}
