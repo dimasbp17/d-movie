@@ -17,6 +17,7 @@ const Home = () => {
   const [discoverMovies, setDiscoverMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState(28);
+
   useEffect(() => {
     if (selectedGenre) {
       getDiscoverMovies(selectedGenre).then((data) => {
@@ -46,7 +47,7 @@ const Home = () => {
               <p className="text-base font-bold text-white md:text-2xl">
                 Now Showing Movies
               </p>
-              <Link to={'/movies/popular-movies'}>
+              <Link to={'/movies/now-showing'}>
                 <Button
                   size="sm"
                   className="text-white capitalize bg-primary"

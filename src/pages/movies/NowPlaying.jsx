@@ -70,7 +70,7 @@ const NowPlaying = () => {
           <div className="grid grid-cols-2 gap-5 lg:grid-cols-5">
             {nowPlaying.map((movie, index) => (
               <div key={index}>
-                <Link to={'/'}>
+                <Link to={`/movies/detail-movies/${movie.id}`}>
                   <CardMovies
                     poster={`${baseImageUrl}/${movie.poster_path}`}
                     alt={movie.title}
