@@ -1,11 +1,11 @@
 import React from 'react';
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
 
-const ArrowButton = ({ type, onClick }) => {
+const ArrowButtonBanner = ({ type, onClick }) => {
   return (
     <button
-      className={`absolute top-1/2 -translate-y-1/2 z-10 rounded-full bg-gray-500 text-black border shadow-lg p-2 ${
-        type === 'next' ? '-right-4' : '-left-4'
+      className={`absolute top-1/2 -translate-y-1/2 z-10 rounded-full bg-gray-500/50 text-black border shadow-lg p-2 ${
+        type === 'next' ? 'right-4' : 'left-4'
       }`}
       onClick={onClick}
     >
@@ -18,4 +18,4 @@ const ArrowButton = ({ type, onClick }) => {
   );
 };
 
-export default ArrowButton;
+export default ArrowButtonBanner;

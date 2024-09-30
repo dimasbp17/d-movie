@@ -3,3 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slick-slide > div {
+  padding: 0 6px !important;
+}
+
+.slick-list {
+  padding: 0 0px;
+}
