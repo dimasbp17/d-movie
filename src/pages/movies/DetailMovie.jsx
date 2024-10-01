@@ -42,12 +42,28 @@ const DetailMovie = () => {
                   className="w-[300px] h-[400px] object-cover rounded-lg"
                 />
               </div>
-              <div className="max-w-lg ml-10 text-white">
+              <div className="flex flex-col ml-10 text-white max-w-[800px] gap-2">
                 <h1 className="text-4xl font-bold">{movie.title}</h1>
-                <span>{movie.release_date}</span>|
-                <span>
-                  {movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'}
-                </span>
+                <div className="flex items-center gap-2 text-sm">
+                  <span>{movie.release_date}</span>|
+                  <div>
+                    <span>
+                      {movie.vote_average
+                        ? movie.vote_average.toFixed(1)
+                        : 'N/A'}
+                    </span>
+                    <span className="ml-1">({movie.vote_count})</span>
+                  </div>
+                  {movie.genres?.map((genre) => (
+                    <span
+                      key={genre.id}
+                      className="px-2 py-1 rounded-sm bg-primary"
+                    >
+                      {genre.name}
+                    </span>
+                  ))}
+                </div>
+                <span className="text-justify">{movie.overview}</span>
               </div>
             </div>
           </div>

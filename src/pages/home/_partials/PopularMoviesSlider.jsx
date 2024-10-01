@@ -80,7 +80,7 @@ const PopularMoviesSlider = ({ items }) => {
               key={index}
               className=""
             >
-              <Link to={'/'}>
+              <Link to={`/movies/detail-movies/${movie.id}`}>
                 <CardHorizontal
                   poster={`${baseImageUrl}/${movie.backdrop_path}`}
                   alt={movie.title}

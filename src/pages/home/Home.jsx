@@ -94,14 +94,16 @@ const Home = () => {
             </div>
             <div className="grid grid-cols-2 gap-5 my-5 lg:grid-cols-5">
               {discoverMovies.map((movie) => (
-                <CardHorizontal
-                  poster={`${baseImageUrl}/${movie.backdrop_path}`}
-                  alt={movie.title}
-                  title={movie.title}
-                  release={movie.release_date}
-                  rating={movie.vote_average.toFixed(1)}
-                  // genre={getGenreNames(movie.genre_ids)}
-                />
+                <Link to={`/movies/detail-movies/${movie.id}`}>
+                  <CardHorizontal
+                    poster={`${baseImageUrl}/${movie.backdrop_path}`}
+                    alt={movie.title}
+                    title={movie.title}
+                    release={movie.release_date}
+                    rating={movie.vote_average.toFixed(1)}
+                    // genre={getGenreNames(movie.genre_ids)}
+                  />
+                </Link>
               ))}
             </div>
           </div>
