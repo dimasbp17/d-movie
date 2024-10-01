@@ -75,7 +75,7 @@ const NowPlayingSlider = ({ items }) => {
               key={index}
               className=""
             >
-              <Link to={'/'}>
+              <Link to={`/movies/detail-movies/${movie.id}`}>
                 <CardMovies
                   poster={`${baseImageUrl}/${movie.poster_path}`}
                   alt={movie.title}
