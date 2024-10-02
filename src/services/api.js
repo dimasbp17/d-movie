@@ -78,3 +78,14 @@ export const getDetailMovie = async (id) => {
     console.error('Error fetching movie list:', error);
   }
 };
+
+export const getCast = async (id) => {
+  try {
+    const cast = await axios.get(
+      `${baseUrl}/movie/${id}/credits?api_key=${apiKey}`
+    );
+    return cast.data;
+  } catch (error) {
+    console.error('Error fetching movie list:', error);
+  }
+};
