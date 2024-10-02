@@ -5,19 +5,19 @@ import gambar from '../../../../public/assets/avatar.png';
 const CardCast = ({ image, alt, name, character }) => {
   return (
     <>
-      <Card className="max-w-full rounded-none min-w-[150px] h-auto bg-[#333333] text-white">
+      <div className="max-w-full rounded-none min-w-[150px] bg-transparent text-white">
         <div>
           <img
             src={image}
             alt={alt}
-            className="object-cover w-full h-[200px]"
+            className="object-cover w-full size-[150px] rounded-3xl object-top"
           />
         </div>
-        <div className="p-2">
+        <div className="p-2 text-sm text-center">
           <h5 className="font-bold">{name}</h5>
-          <h5 className="text-sm">{character}</h5>
+          <h5 className="">{character}</h5>
         </div>
-      </Card>
+      </div>
     </>
   );
 };
