@@ -8,11 +8,13 @@ module.exports = withMT({
     extend: {
       fontFamily: {
         poppins: ['Poppins, sans-serif'],
+        inter: ['Inter, sans-serif'],
       },
       colors: {
         primary: '#FF0000',
+        kuning: '#FFD700',
       },
     },
   },
-  plugins: [],
+  plugins: ['tailwind-scrollbar'],
 });

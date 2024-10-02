@@ -34,7 +34,7 @@ const Home = () => {
 
   return (
     <>
-      <div className=" font-poppins">
+      <div className="">
         <div>
           <Navbar />
         </div>

@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
-import { getDetailMovie } from '../../services/api';
+import { getCast, getDetailMovie } from '../../services/api';
 import { useParams } from 'react-router-dom';
+import CardCast from './_partials/CardCast';
 
 const DetailMovie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
+  const [cast, setCast] = useState([]);
 
   useEffect(() => {
     getDetailMovie(id).then((data) => {
       setMovie(data);
+    });
+  }, [id]);
+
+  useEffect(() => {
+    getCast(id).then((data) => {
+      setCast(data.cast);
     });
   }, [id]);
 
@@ -34,16 +42,16 @@ const DetailMovie = () => {
               className="object-cover w-full h-screen bg-gradient-to-t from-black to-transparent"
             /> */}
             <div className="absolute inset-0 w-full "></div>
-            <div className="absolute inset-0 flex items-center ml-10">
+            <div className="absolute inset-0 flex flex-col items-center ml-10 lg:flex-row">
               <div className="flex-none">
                 <img
                   src={`${baseImageUrl}/${movie.poster_path}`}
                   alt=""
-                  className="w-[300px] h-[400px] object-cover rounded-lg"
+                  className="w-[300px] h-[450px] object-cover rounded-lg"
                 />
               </div>
-              <div className="flex flex-col ml-10 text-white max-w-[800px] gap-2">
-                <h1 className="text-4xl font-bold">{movie.title}</h1>
+              <div className="flex flex-col ml-10 text-white max-w-[800px] gap-3">
+                <h1 className="text-5xl font-bold">{movie.title}</h1>
                 <div className="flex items-center gap-2 text-sm">
                   <span>{movie.release_date}</span>|
                   <div>
@@ -52,7 +60,7 @@ const DetailMovie = () => {
                         ? movie.vote_average.toFixed(1)
                         : 'N/A'}
                     </span>
-                    <span className="ml-1">({movie.vote_count})</span>
+                    <span className="ml-1">({movie.vote_count})</span> |
                   </div>
                   {movie.genres?.map((genre) => (
                     <span
@@ -63,26 +71,61 @@ const DetailMovie = () => {
                     </span>
                   ))}
                 </div>
-                <span className="text-justify">{movie.overview}</span>
+                <div>
+                  <h1 className="text-lg font-bold text-kuning">Overview</h1>
+                  <span className="text-justify">{movie.overview}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <div className="container mx-auto text-white">
-          <div>
-            sasa Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Explicabo libero atque voluptas labore illo, nesciunt nemo ducimus
-            quia nostrum fuga, laboriosam eum nam praesentium repellendus?
-            Debitis molestias sed deserunt cum enim maiores, pariatur dolorem
-            dicta, et harum cupiditate. Illum nemo laborum similique voluptates
-            sequi a veniam dolorum at alias commodi omnis quam, facilis neque
-            molestias ea repellendus molestiae consectetur voluptas beatae quas
-            eum? Blanditiis laborum error, voluptatibus magnam placeat provident
-            amet itaque facere minima repellat quae numquam facilis tempora
-            eligendi minus nemo alias tenetur. Aliquid, veritatis? Distinctio,
-            mollitia nostrum? Recusandae laboriosam assumenda non voluptatem,
-            magnam doloribus quis fugit minus culpa?
+          <div className="grid grid-cols-12 p-4">
+            <div className="h-10 col-span-full lg:col-span-10">
+              <div>
+                <h1 className="mb-3 text-2xl font-bold">Top Cast</h1>
+                <div className="flex w-full max-w-full gap-2 overflow-x-scroll scrollbar-hide scrollbar scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-700">
+                  {cast.map((cast) => (
+                    <CardCast
+                      image={`${baseImageUrl}/${cast.profile_path}`}
+                      name={cast.name}
+                      character={cast.character}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="h-10 ml-5 space-y-3 col-span-full lg:col-span-2">
+              <div>
+                <h2 className="text-lg font-bold">Status</h2>
+                <h2 className="text-gray-400">{movie.status}</h2>
+              </div>
+              <div>
+                <h2 className="text-lg font-bold">Budget</h2>
+                <h2 className="text-gray-400">
+                  $ {movie.budget?.toLocaleString()}
+                </h2>
+              </div>
+              <div>
+                <h2 className="text-lg font-bold">Revenue</h2>
+                <h2 className="text-gray-400">
+                  $ {movie.revenue?.toLocaleString()}
+                </h2>
+              </div>
+              <div>
+                <h2 className="text-lg font-bold">Spoken Language</h2>
+                <h2 className="text-gray-400">
+                  {movie.spoken_languages?.map((lang) => (
+                    <span>{lang.name}</span>
+                  ))}
+                </h2>
+              </div>
+              <div>
+                <h2 className="text-lg font-bold">Popularity</h2>
+                <h2 className="text-gray-400">{movie.popularity}</h2>
+              </div>
+            </div>
           </div>
         </div>
       </div>
