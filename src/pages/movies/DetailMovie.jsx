@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import { getCast, getDetailMovie } from '../../services/api';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import CardCast from './_partials/CardCast';
+import { Card } from '@material-tailwind/react';
 
 const DetailMovie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
   const [cast, setCast] = useState([]);
+  const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
     getDetailMovie(id).then((data) => {
@@ -83,16 +85,44 @@ const DetailMovie = () => {
         <div className="container mx-auto text-white">
           <div className="grid grid-cols-12 p-4">
             <div className="h-10 col-span-full lg:col-span-10">
+              <div className="mb-5">
+                <h1 className="mb-3 text-2xl font-bold">
+                  Companies Production
+                </h1>
+                <div className="flex gap-5">
+                  {movie.production_companies?.map(
+                    (company) =>
+                      company.logo_path && (
+                        <Card className="p-2 rounded-none">
+                          <img
+                            key={company.id}
+                            src={`${baseImageUrl}/${company.logo_path}`}
+                            alt={company.name}
+                            className="w-auto h-10"
+                          />
+                        </Card>
+                      )
+                  )}
+                </div>
+              </div>
               <div>
                 <h1 className="mb-3 text-2xl font-bold">Top Cast</h1>
-                <div className="flex w-full max-w-full gap-2 overflow-x-scroll scrollbar-hide scrollbar scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-700">
-                  {cast.map((cast) => (
-                    <CardCast
-                      image={`${baseImageUrl}/${cast.profile_path}`}
-                      name={cast.name}
-                      character={cast.character}
-                    />
-                  ))}
+                <div className="flex w-full max-w-full gap-3 overflow-x-scroll scrollbar-hide scrollbar scrollbar-thin scrollbar-thumb-rounded scrollbar-thumb-gray-700">
+                  {cast.map(
+                    (cast) =>
+                      cast.profile_path && (
+                        <Link
+                          to={'/'}
+                          key={cast.id}
+                        >
+                          <CardCast
+                            image={`${baseImageUrl}/${cast.profile_path}`}
+                            name={cast.name}
+                            character={cast.character}
+                          />
+                        </Link>
+                      )
+                  )}
                 </div>
               </div>
             </div>
