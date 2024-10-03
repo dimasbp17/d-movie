@@ -1,6 +1,4 @@
-import { Card } from '@material-tailwind/react';
 import React from 'react';
-import gambar from '../../../../public/assets/avatar.png';
 
 const CardCast = ({ image, alt, name, character }) => {
   return (
@@ -15,7 +13,7 @@ const CardCast = ({ image, alt, name, character }) => {
         </div>
         <div className="p-2 text-sm text-center">
           <h5 className="font-bold">{name}</h5>
-          <h5 className="">{character}</h5>
+          <h5 className="text-xs font-normal text-yellow-500">{character}</h5>
         </div>
       </div>
     </>

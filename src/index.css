@@ -17,3 +17,25 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* Untuk Chrome, Safari, dan browser berbasis Webkit */
 }
+
+/* Style untuk seluruh scrollbar */
+::-webkit-scrollbar {
+  width: 10px; /* Lebar scrollbar */
+}
+
+/* Style untuk track (background scrollbar) */
+::-webkit-scrollbar-track {
+  background: #333333; /* Warna track */
+}
+
+/* Style untuk handle (bagian yang bisa digeser) */
+::-webkit-scrollbar-thumb {
+  background-color: #ff0000; /* Warna handle */
+  border-radius: 10px; /* Membuat handle melengkung */
+  border: 2px solid #333333; /* Menambahkan border di sekeliling handle */
+}
+
+/* Style untuk handle ketika di-hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Warna handle ketika di-hover */
+}
