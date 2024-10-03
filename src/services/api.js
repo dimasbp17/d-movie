@@ -89,3 +89,14 @@ export const getCast = async (id) => {
     console.error('Error fetching movie list:', error);
   }
 };
+
+export const searchMovies = async (query) => {
+  try {
+    const search = await axios.get(`${baseUrl}/search/movie`, {
+      params: { api_key: apiKey, query },
+    });
+    return search.data.results;
+  } catch (error) {
+    console.error('Error fetching movie list:', error);
+  }
+};

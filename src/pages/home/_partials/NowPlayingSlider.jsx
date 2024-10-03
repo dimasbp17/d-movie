@@ -51,7 +51,6 @@ const NowPlayingSlider = ({ items }) => {
   useEffect(() => {
     getNowPlaying().then((data) => {
       setNowPlaying(data.results);
-      console.log(data.results);
     });
 
     genreMovies().then((response) => {

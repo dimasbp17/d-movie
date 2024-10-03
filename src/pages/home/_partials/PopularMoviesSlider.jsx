@@ -56,7 +56,6 @@ const PopularMoviesSlider = ({ items }) => {
   useEffect(() => {
     getPopularMovies().then((data) => {
       setPopularMovies(data.results);
-      console.log(data.results);
     });
 
     genreMovies().then((response) => {
