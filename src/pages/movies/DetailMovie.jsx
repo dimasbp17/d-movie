@@ -28,7 +28,8 @@ const DetailMovie = () => {
     });
   }, [id]);
 
-  const baseImageUrl = import.meta.env.VITE_BASEIMGURL;
+  const baseImageUrl = 'https://image.tmdb.org/t/p/original';
+  const baseImageUrlKecil = 'https://image.tmdb.org/t/p/w185';
 
   return (
     <>
@@ -103,7 +104,7 @@ const DetailMovie = () => {
                         <Card className="p-3 rounded-md">
                           <img
                             key={company.id}
-                            src={`${baseImageUrl}/${company.logo_path}`}
+                            src={`${baseImageUrlKecil}/${company.logo_path}`}
                             alt={company.name}
                             className="w-auto h-10"
                           />
@@ -155,7 +156,7 @@ const DetailMovie = () => {
                             key={cast.id}
                           >
                             <CardCast
-                              image={`${baseImageUrl}/${cast.profile_path}`}
+                              image={`${baseImageUrlKecil}/${cast.profile_path}`}
                               name={cast.name}
                               character={cast.character}
                             />

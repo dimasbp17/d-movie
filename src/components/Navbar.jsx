@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed z-50 w-full p-4 text-white bg-black md:px-10 lg:px-20 font-inter md:py-5">
+      <div className="static z-50 w-full p-4 text-white bg-[#181C14] md:px-10 lg:px-20 font-inter md:py-5">
         <div>
           <button
             className="items-end justify-end block ms-auto md:hidden"
