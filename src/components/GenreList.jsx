@@ -13,10 +13,10 @@ const GenreList = ({ genres, onSelectGenre }) => {
       <div className="w-full max-w-full space-x-2 overflow-x-auto whitespace-nowrap no-scrollbar">
         {genres.map((genre) => (
           <button
-            className={`capitalize border rounded-full mx-2 px-4 py-3 ${
+            className={`capitalize border rounded-full mx-2 px-4 py-2 ${
               selectedGenre === genre.id
                 ? 'bg-primary text-white border-primary' // Warna merah dengan teks putih jika dipilih
-                : 'border-primary text-primary' // Warna default jika tidak dipilih
+                : 'border-none text-white bg-[#333333]' // Warna default jika tidak dipilih
             }`}
             onClick={() => handleSelectGenre(genre.id)}
           >

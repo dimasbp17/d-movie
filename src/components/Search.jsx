@@ -41,16 +41,16 @@ const Search = () => {
     <div className="relative">
       <input
         type="search"
-        className="w-full px-3 text-xs text-black rounded-sm h-7 lg:h-10 lg:w-60 focus:outline-none"
+        className="w-full px-3 text-xs text-black bg-gray-100 border border-white rounded-sm h-7 lg:h-10 lg:w-80 focus:outline-none"
         placeholder="Search movies..."
         value={query}
         onChange={handleSearch}
       />
-      <div className="absolute inset-y-0 right-0 flex items-center mx-2 bg-white">
+      <div className="absolute inset-y-0 right-0 flex items-center mx-2">
         <IoMdSearch className="text-black size-4" />
       </div>
       {showDropdown && suggestions.length > 0 && (
-        <ul className="absolute z-50 w-full mt-2 overflow-y-auto bg-white shadow-lg max-h-80">
+        <ul className="absolute z-50 w-full mt-2 overflow-y-auto shadow-lg bg-white/100 max-h-80">
           {loading ? (
             <li className="p-2 text-gray-600">Loading...</li>
           ) : (
@@ -62,7 +62,7 @@ const Search = () => {
                 <Link
                   to={`/movies/detail-movies/${movie.id}`}
                   onClick={handleSelectMovie}
-                  className="block p-2 hover:bg-gray-100"
+                  className="block p-2 hover:bg-gray-200"
                 >
                   <div className="flex items-center">
                     <img
