@@ -3,8 +3,9 @@ import Navbar from '../../components/Navbar';
 import { getCast, getDetailMovie, getImages } from '../../services/api';
 import { Link, useParams } from 'react-router-dom';
 import CardCast from './_partials/CardCast';
-import { Card } from '@material-tailwind/react';
+import { Button, Card } from '@material-tailwind/react';
 import Loading from '../../components/Loading';
+import { FaPlay } from 'react-icons/fa';
 
 const DetailMovie = () => {
   const { id } = useParams();
@@ -71,17 +72,19 @@ const DetailMovie = () => {
                 </div>
                 <div className="flex flex-col lg:ml-10 text-white max-w-[800px] gap-3">
                   <h1 className="text-5xl font-bold">{movie.title}</h1>
-                  <div className="flex items-center gap-2 text-sm">
-                    <span>{movie.release_date}</span>|
-                    <div>
-                      <span>
-                        {movie.vote_average
-                          ? movie.vote_average.toFixed(1)
-                          : 'N/A'}
-                      </span>
-                      <span className="ml-1">({movie.vote_count})</span> |
+                  <div className="flex flex-col gap-2 text-sm lg:items-center lg:flex-row">
+                    <div className="flex gap-2">
+                      <span>{movie.release_date}</span>|
+                      <div>
+                        <span>
+                          {movie.vote_average
+                            ? movie.vote_average.toFixed(1)
+                            : 'N/A'}
+                        </span>
+                        <span className="ml-1">({movie.vote_count})</span> |
+                      </div>
                     </div>
-                    <div>
+                    <div className="space-x-2">
                       {movie.genres?.map((genre) => (
                         <span
                           key={genre.id}
@@ -96,6 +99,14 @@ const DetailMovie = () => {
                     <h1 className="text-lg font-bold text-kuning">Overview</h1>
                     <span className="text-justify">{movie.overview}</span>
                   </div>
+                  <div>
+                    <Button
+                      className="flex items-center gap-2 capitalize rounded-sm bg-primary"
+                      size="sm"
+                    >
+                      <FaPlay /> Watch Trailer
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -107,16 +118,16 @@ const DetailMovie = () => {
                 <h1 className="mb-3 text-2xl font-bold">
                   Companies Production
                 </h1>
-                <div className="flex gap-5">
+                <div className="flex w-full gap-5 overflow-x-scroll scrollbar-hide">
                   {movie.production_companies?.map(
                     (company) =>
                       company.logo_path && (
-                        <Card className="p-3 rounded-md">
+                        <Card className="p-3 rounded-md min-w-fit">
                           <img
                             key={company.id}
                             src={`${baseImageUrl}/w185/${company.logo_path}`}
                             alt={company.name}
-                            className="w-auto h-10"
+                            className="object-cover w-full h-10"
                           />
                         </Card>
                       )
@@ -188,7 +199,7 @@ const DetailMovie = () => {
                 <h1 className="mb-3 text-2xl font-bold">Media</h1>
                 <div className="grid grid-cols-12">
                   <div className="col-span-full">
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
                       {images.slice(0, maxImagesToShow).map((image) => (
                         <img
                           src={`${baseImageUrl}/original/${image.file_path}`}

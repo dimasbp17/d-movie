@@ -92,7 +92,7 @@ const Home = () => {
                 onSelectGenre={setSelectedGenre}
               />
             </div>
-            <div className="grid grid-cols-2 gap-5 my-5 lg:grid-cols-5">
+            <div className="grid grid-cols-2 gap-3 my-5 lg:grid-cols-4">
               {discoverMovies.map((movie) => (
                 <Link to={`/movies/detail-movies/${movie.id}`}>
                   <CardHorizontal

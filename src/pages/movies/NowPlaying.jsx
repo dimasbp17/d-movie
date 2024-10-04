@@ -15,7 +15,7 @@ const NowPlaying = () => {
 
   // Mengambil page dari query parameter
   const [searchParams, setSearchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || 1; // Jika tidak ada page, default ke 1
+  const currentPage = Number(searchParams.get('page')) || 1;
 
   useEffect(() => {
     setLoading(true);
