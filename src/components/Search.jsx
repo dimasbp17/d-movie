@@ -41,7 +41,7 @@ const Search = () => {
     <div className="relative">
       <input
         type="search"
-        className="w-full px-3 text-xs text-black rounded-sm h-7 lg:h-8 lg:w-52 focus:outline-none"
+        className="w-full px-3 text-xs text-black rounded-sm h-7 lg:h-10 lg:w-60 focus:outline-none"
         placeholder="Search movies..."
         value={query}
         onChange={handleSearch}

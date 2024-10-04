@@ -100,3 +100,14 @@ export const searchMovies = async (query) => {
     console.error('Error fetching movie list:', error);
   }
 };
+
+export const getImages = async (id) => {
+  try {
+    const images = await axios.get(
+      `${baseUrl}/movie/${id}/images?api_key=${apiKey}`
+    );
+    return images.data;
+  } catch (error) {
+    console.error('Error fetching movie list:', error);
+  }
+};
