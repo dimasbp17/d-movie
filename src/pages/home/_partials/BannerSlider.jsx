@@ -28,7 +28,7 @@ const BannerSlider = () => {
     );
   };
 
-  const baseImageUrl = 'https://image.tmdb.org/t/p/original';
+  const baseImageUrl = import.meta.env.VITE_BASEIMGURL;
 
   const settings = {
     dots: false, // Menampilkan titik navigasi di bawah slider
@@ -52,7 +52,7 @@ const BannerSlider = () => {
               className="relative w-full"
             >
               <img
-                src={`${baseImageUrl}/${banner.backdrop_path}`}
+                src={`${baseImageUrl}/original/${banner.backdrop_path}`}
                 alt={banner.title}
                 className="object-cover object-top w-full h-screen"
                 loading="lazy"

@@ -76,7 +76,7 @@ const NowPlayingSlider = ({ items }) => {
             >
               <Link to={`/movies/detail-movies/${movie.id}`}>
                 <CardMovies
-                  poster={`${baseImageUrl}/${movie.poster_path}`}
+                  poster={`${baseImageUrl}/w500/${movie.poster_path}`}
                   alt={movie.title}
                   title={movie.title}
                   releaseDate={movie.release_date}
