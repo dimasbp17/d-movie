@@ -13,7 +13,7 @@ const DetailMovie = () => {
   const [cast, setCast] = useState([]);
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const maxImagesToShow = 4;
+  const maxImagesToShow = 6;
 
   useEffect(() => {
     setLoading(true);
@@ -199,7 +199,7 @@ const DetailMovie = () => {
                 <h1 className="mb-3 text-2xl font-bold">Media</h1>
                 <div className="grid grid-cols-12">
                   <div className="col-span-full">
-                    <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+                    <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
                       {images.slice(0, maxImagesToShow).map((image) => (
                         <img
                           src={`${baseImageUrl}/original/${image.file_path}`}
