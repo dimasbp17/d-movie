@@ -12,6 +12,8 @@ import PopularMoviesSlider from './_partials/PopularMoviesSlider';
 import GenreList from '../../components/GenreList';
 import { genreMovies, getDiscoverMovies } from '../../services/api';
 import { FaFire } from 'react-icons/fa';
+import { IoFilterCircle, IoFilterCircleOutline } from 'react-icons/io5';
+import { RiSlideshow3Fill } from 'react-icons/ri';
 
 const Home = () => {
   const [discoverMovies, setDiscoverMovies] = useState([]);
@@ -44,8 +46,8 @@ const Home = () => {
         <div className="px-4 md:px-20">
           <div className="mt-10">
             <div className="flex items-center justify-between my-5">
-              <p className="text-base font-bold text-white md:text-2xl">
-                Now Showing Movies
+              <p className="flex items-center gap-2 text-base font-bold text-white md:text-2xl">
+                <RiSlideshow3Fill /> Now Showing Movies
               </p>
               <Link to={'/movies/now-showing'}>
                 <Button
@@ -82,8 +84,8 @@ const Home = () => {
 
           <div className="my-20">
             <div className="flex items-center justify-between my-5">
-              <p className="text-base font-bold text-white md:text-2xl">
-                Discover Movies
+              <p className="flex items-center gap-2 text-base font-bold text-white md:text-2xl">
+                <IoFilterCircle /> Discover Movies
               </p>
             </div>
             <div>

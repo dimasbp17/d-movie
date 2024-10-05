@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { IoMdSearch } from 'react-icons/io';
 import { searchMovies } from '../services/api';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,20 @@ const Search = () => {
   const [loading, setLoading] = useState(false); // Set loading to false initially
   const [showDropdown, setShowDropdown] = useState(false);
   const [error, setError] = useState(null);
+
+  const dropdown = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdown.current && !dropdown.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdown]);
 
   const handleSearch = async (e) => {
     const queryValue = e.target.value;
@@ -41,18 +55,23 @@ const Search = () => {
     <div className="relative">
       <input
         type="search"
-        className="w-full px-3 text-xs text-black bg-gray-100 border border-white rounded-sm h-7 lg:h-10 lg:w-80 focus:outline-none"
+        className="w-full px-3 text-xs text-black bg-gray-100 border border-white h-7 lg:h-10 lg:w-80 focus:outline-none"
         placeholder="Search movies..."
         value={query}
         onChange={handleSearch}
       />
-      <div className="absolute inset-y-0 right-0 flex items-center mx-2">
-        <IoMdSearch className="text-black size-4" />
+      <div className="absolute inset-y-0 right-0 flex items-center px-2 bg-primary">
+        <IoMdSearch className="text-white size-5" />
       </div>
       {showDropdown && suggestions.length > 0 && (
-        <ul className="absolute z-50 w-full mt-2 overflow-y-auto shadow-lg bg-white/100 max-h-80">
+        <ul
+          ref={dropdown}
+          className="absolute z-50 w-full mt-2 overflow-y-auto shadow-lg bg-white/100 max-h-80"
+        >
           {loading ? (
-            <li className="p-2 text-gray-600">Loading...</li>
+            <li className="flex justify-center p-2 text-gray-800">
+              Loading...
+            </li>
           ) : (
             suggestions.map((movie) => (
               <li
