@@ -14,6 +14,8 @@ import { genreMovies, getDiscoverMovies } from '../../services/api';
 import { FaFire } from 'react-icons/fa';
 import { IoFilterCircle, IoFilterCircleOutline } from 'react-icons/io5';
 import { RiSlideshow3Fill } from 'react-icons/ri';
+import TopRatedMoviesSlider from './_partials/TopRatedMoviesSlider';
+import { IoIosStar } from 'react-icons/io';
 
 const Home = () => {
   const [discoverMovies, setDiscoverMovies] = useState([]);
@@ -52,7 +54,7 @@ const Home = () => {
               <Link to={'/movies/now-showing'}>
                 <Button
                   size="sm"
-                  className="text-white capitalize bg-primary"
+                  className="text-white capitalize rounded-none bg-primary"
                 >
                   View All
                 </Button>
@@ -71,7 +73,7 @@ const Home = () => {
               <Link to={'/movies/popular-movies'}>
                 <Button
                   size="sm"
-                  className="text-white capitalize bg-primary"
+                  className="text-white capitalize rounded-none bg-primary"
                 >
                   View All
                 </Button>
@@ -107,6 +109,25 @@ const Home = () => {
                   />
                 </Link>
               ))}
+            </div>
+          </div>
+
+          <div className="my-20">
+            <div className="flex items-center justify-between my-5">
+              <p className="flex items-center gap-2 text-base font-bold text-white md:text-2xl">
+                <IoIosStar /> Top Rated Movies
+              </p>
+              <Link to={'/movies/top-rated-movies'}>
+                <Button
+                  size="sm"
+                  className="text-white capitalize rounded-none bg-primary"
+                >
+                  View All
+                </Button>
+              </Link>
+            </div>
+            <div>
+              <TopRatedMoviesSlider />
             </div>
           </div>
         </div>
