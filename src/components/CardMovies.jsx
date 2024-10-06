@@ -5,7 +5,7 @@ import { IoStar } from 'react-icons/io5';
 const CardMovies = ({ poster, alt, title, releaseDate, rating, genre }) => {
   return (
     <>
-      <div className="bg-[#333333]">
+      <div className="bg-[#333333] transition-bg hover:bg-gradient-to-t duration-300 hover:from-[#333333] hover:to-[#FFD700]">
         <div className="relative flex items-center justify-center">
           <img
             src={poster}
