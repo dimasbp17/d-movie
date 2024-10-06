@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Search from './Search';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import movies from '../../public/assets/dmovies.png';
+import movies from '../../public/assets/d-movies.png';
 import { IoCloseOutline } from 'react-icons/io5';
 import { FaBars } from 'react-icons/fa';
 
@@ -46,7 +46,7 @@ const Navbar = () => {
             <img
               src={movies}
               alt=""
-              className="hidden w-36 md:block"
+              className="hidden w-40 md:block"
             />
           </Link>
           <ul className="flex flex-col items-center justify-center gap-10 md:flex md:flex-row ms-auto">
