@@ -61,7 +61,7 @@ const TopRatedMovies = () => {
           <div className="grid grid-cols-2 gap-5 lg:grid-cols-5">
             {topRatedMovies.map((movie, index) => (
               <div key={index}>
-                <Link to={'/'}>
+                <Link to={`/movies/detail-movies/${movie.id}`}>
                   <CardMovies
                     poster={`${baseImageUrl}/w500/${movie.poster_path}`}
                     alt={movie.title}
