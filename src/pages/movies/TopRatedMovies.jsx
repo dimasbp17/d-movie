@@ -3,15 +3,18 @@ import Navbar from '../../components/Navbar';
 import { genreMovies, getTopRatedMovies } from '../../services/api';
 import CardMovies from '../../components/CardMovies';
 import Pagination from '../../components/Pagination';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
 
 const TopRatedMovies = () => {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [genres, setGenres] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get('page')) || 1;
 
   useEffect(() => {
     setLoading(true);
@@ -38,7 +41,7 @@ const TopRatedMovies = () => {
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
-      setCurrentPage(newPage);
+      setSearchParams({ page: newPage });
       window.scrollTo({
         top: 0,
         behavior: 'smooth',

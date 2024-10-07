@@ -3,16 +3,17 @@ import Navbar from '../../components/Navbar';
 import { genreMovies, getPopularMovies } from '../../services/api';
 import CardMovies from '../../components/CardMovies';
 import Pagination from '../../components/Pagination';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Spinner } from '@material-tailwind/react';
 import Loading from '../../components/Loading';
 
 const PopularMovies = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [genres, setGenres] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get('page')) || 1;
 
   useEffect(() => {
     setLoading(true);
@@ -39,7 +40,7 @@ const PopularMovies = () => {
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
-      setCurrentPage(newPage);
+      setSearchParams({ page: newPage });
       window.scrollTo({
         top: 0,
         behavior: 'smooth',

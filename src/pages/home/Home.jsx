@@ -16,6 +16,8 @@ import { IoFilterCircle, IoFilterCircleOutline } from 'react-icons/io5';
 import { RiSlideshow3Fill } from 'react-icons/ri';
 import TopRatedMoviesSlider from './_partials/TopRatedMoviesSlider';
 import { IoIosStar } from 'react-icons/io';
+import UpcomingMoviesSlider from './_partials/UpcomingMoviesSlider';
+import { MdUpcoming } from 'react-icons/md';
 
 const Home = () => {
   const [discoverMovies, setDiscoverMovies] = useState([]);
@@ -128,6 +130,25 @@ const Home = () => {
             </div>
             <div>
               <TopRatedMoviesSlider />
+            </div>
+          </div>
+
+          <div className="my-20">
+            <div className="flex items-center justify-between my-5">
+              <p className="flex items-center gap-2 text-base font-bold text-white md:text-2xl">
+                <MdUpcoming /> Upcoming Movies
+              </p>
+              <Link to={'/movies/upcoming-movies'}>
+                <Button
+                  size="sm"
+                  className="text-white capitalize rounded-none bg-primary"
+                >
+                  View All
+                </Button>
+              </Link>
+            </div>
+            <div>
+              <UpcomingMoviesSlider />
             </div>
           </div>
         </div>
