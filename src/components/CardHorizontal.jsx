@@ -1,12 +1,11 @@
 import React from 'react';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { IoStar } from 'react-icons/io5';
-import contoh from '../../public/assets/avatar.png';
 
 const CardHorizontal = ({ poster, alt, title, release, rating, genre }) => {
   return (
     <>
-      <div className="bg-[#333333]">
+      <div className="bg-[#333333] transition-bg hover:bg-gradient-to-t duration-500 hover:from-[#333333] hover:to-[#FFD700]">
         <div className="relative">
           <img
             src={poster}
