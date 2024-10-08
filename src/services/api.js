@@ -111,3 +111,14 @@ export const getImages = async (id) => {
     console.error('Error fetching movie list:', error);
   }
 };
+
+export const getRecomendations = async (id) => {
+  try {
+    const recomendations = await axios.get(
+      `${baseUrl}/movie/${id}/recommendations?api_key=${apiKey}`
+    );
+    return recomendations.data;
+  } catch (error) {
+    console.error('Error fetching movie list:', error);
+  }
+};

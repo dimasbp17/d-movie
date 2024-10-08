@@ -6,6 +6,8 @@ import CardCast from './_partials/CardCast';
 import { Button, Card } from '@material-tailwind/react';
 import Loading from '../../components/Loading';
 import { FaPlay } from 'react-icons/fa';
+import RecomendationsMoviesSlider from '../../components/RecomendationMoviesSlider';
+import { MdUpcoming } from 'react-icons/md';
 
 const DetailMovie = () => {
   const { id } = useParams();
@@ -210,6 +212,24 @@ const DetailMovie = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div className="my-20">
+              <div className="flex items-center justify-between my-5">
+                <p className="flex items-center gap-2 text-base font-bold text-white md:text-2xl">
+                  <MdUpcoming /> Recomendations Movies
+                </p>
+                <Link to={'/movies/upcoming-movies'}>
+                  <Button
+                    size="sm"
+                    className="text-white capitalize rounded-none bg-primary"
+                  >
+                    View All
+                  </Button>
+                </Link>
+              </div>
+              <div>
+                <RecomendationsMoviesSlider />
               </div>
             </div>
           </div>
