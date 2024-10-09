@@ -122,3 +122,15 @@ export const getRecomendations = async (id) => {
     console.error('Error fetching movie list:', error);
   }
 };
+
+export const getRecomendationsPage = async (id, page = 1) => {
+  try {
+    const recomendations = await axios.get(
+      `${baseUrl}/movie/${id}/recommendations?api_key=${apiKey}&page=${page}`
+    );
+    return recomendations.data;
+  } catch (error) {
+    console.error('Error fetching movie list:', error);
+    return { results: [], total_pages: 0 }; // Mengembalikan nilai default jika terjadi error
+  }
+};

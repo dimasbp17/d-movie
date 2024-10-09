@@ -9,6 +9,7 @@ import TopRatedMovies from './pages/movies/TopRatedMovies';
 import NowPlaying from './pages/movies/NowPlaying';
 import UpcomingMovies from './pages/movies/UpcomingMovies';
 import DetailMovie from './pages/movies/DetailMovie';
+import RecommendationsMovies from './pages/movies/RecommendationsMovies';
 
 const App = () => {
   return (
@@ -46,6 +47,10 @@ const App = () => {
         <Route
           path="/cardslider"
           element={<CardSlider />}
+        />
+        <Route
+          path="/movies/recommendations-movies/:id"
+          element={<RecommendationsMovies />}
         />
       </Routes>
     </BrowserRouter>

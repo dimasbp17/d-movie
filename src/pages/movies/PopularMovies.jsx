@@ -4,7 +4,6 @@ import { genreMovies, getPopularMovies } from '../../services/api';
 import CardMovies from '../../components/CardMovies';
 import Pagination from '../../components/Pagination';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Spinner } from '@material-tailwind/react';
 import Loading from '../../components/Loading';
 
 const PopularMovies = () => {

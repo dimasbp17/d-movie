@@ -3,12 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ArrowButton from './ArrowButton';
-import {
-  genreMovies,
-  getNowPlaying,
-  getPopularMovies,
-} from '../../../services/api';
-import CardMovies from '../../../components/CardMovies';
+import { genreMovies, getPopularMovies } from '../../../services/api';
 import { Link } from 'react-router-dom';
 import CardHorizontal from '../../../components/CardHorizontal';
 
