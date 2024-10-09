@@ -3,13 +3,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ArrowButton from './ArrowButton';
-import {
-  genreMovies,
-  getPopularMovies,
-  getTopRatedMovies,
-} from '../../../services/api';
+import { genreMovies, getTopRatedMovies } from '../../../services/api';
 import { Link } from 'react-router-dom';
-import CardHorizontal from '../../../components/CardHorizontal';
 import CardMovies from '../../../components/CardMovies';
 
 const TopRatedMoviesSlider = () => {

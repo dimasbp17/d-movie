@@ -219,7 +219,7 @@ const DetailMovie = () => {
                 <p className="flex items-center gap-2 text-base font-bold text-white md:text-2xl">
                   <MdUpcoming /> Recomendations Movies
                 </p>
-                <Link to={'/movies/upcoming-movies'}>
+                <Link to={`/movies/recommendations-movies/${movie.id}`}>
                   <Button
                     size="sm"
                     className="text-white capitalize rounded-none bg-primary"
