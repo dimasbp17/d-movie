@@ -8,6 +8,7 @@ import Loading from '../../components/Loading';
 import { FaPlay } from 'react-icons/fa';
 import RecomendationsMoviesSlider from '../../components/RecomendationMoviesSlider';
 import { MdUpcoming } from 'react-icons/md';
+import { RiMovie2Fill } from 'react-icons/ri';
 
 const DetailMovie = () => {
   const { id } = useParams();
@@ -217,7 +218,7 @@ const DetailMovie = () => {
             <div className="my-20">
               <div className="flex items-center justify-between my-5">
                 <p className="flex items-center gap-2 text-base font-bold text-white md:text-2xl">
-                  <MdUpcoming /> Recomendations Movies
+                  <RiMovie2Fill /> Recomendations Movies
                 </p>
                 <Link to={`/movies/recommendations-movies/${movie.id}`}>
                   <Button
