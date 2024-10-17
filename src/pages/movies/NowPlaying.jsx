@@ -5,6 +5,7 @@ import CardMovies from '../../components/CardMovies';
 import Pagination from '../../components/Pagination';
 import { Link, useSearchParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
+import { RiSlideshow3Fill } from 'react-icons/ri';
 
 const NowPlaying = () => {
   const [nowPlaying, setNowPlaying] = useState([]);
@@ -60,8 +61,8 @@ const NowPlaying = () => {
         <Loading />
       ) : (
         <div className="container p-4 mx-auto md:p-0">
-          <h1 className="mt-10 text-2xl font-bold text-white font-poppins">
-            Now Showing Movies
+          <h1 className="flex items-center gap-2 mt-10 text-2xl font-bold text-white font-poppins">
+            <RiSlideshow3Fill /> Now Showing Movies
           </h1>
           {dateRange && (
             <p className="my-5 text-white">

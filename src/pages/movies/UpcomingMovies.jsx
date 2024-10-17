@@ -5,6 +5,7 @@ import CardMovies from '../../components/CardMovies';
 import Pagination from '../../components/Pagination';
 import { Link, useSearchParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
+import { MdUpcoming } from 'react-icons/md';
 
 const UpcomingMovies = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
@@ -60,8 +61,8 @@ const UpcomingMovies = () => {
         <Loading />
       ) : (
         <div className="container p-4 mx-auto md:p-0">
-          <h1 className="mt-10 text-2xl font-bold text-white font-poppins">
-            Upcoming Movies
+          <h1 className="flex items-center gap-2 mt-10 text-2xl font-bold text-white font-poppins">
+            <MdUpcoming /> Upcoming Movies
           </h1>
           {dateRange && (
             <p className="my-5 text-white">

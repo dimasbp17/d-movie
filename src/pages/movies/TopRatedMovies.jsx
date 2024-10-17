@@ -5,6 +5,7 @@ import CardMovies from '../../components/CardMovies';
 import Pagination from '../../components/Pagination';
 import { Link, useSearchParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
+import { IoIosStar } from 'react-icons/io';
 
 const TopRatedMovies = () => {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -58,8 +59,8 @@ const TopRatedMovies = () => {
         <Loading />
       ) : (
         <div className="container p-4 mx-auto md:p-0">
-          <h1 className="my-10 text-2xl font-bold text-white font-poppins">
-            Top Rated Movies
+          <h1 className="flex items-center gap-2 my-10 text-2xl font-bold text-white font-poppins">
+            <IoIosStar /> Top Rated Movies
           </h1>
           <div className="grid grid-cols-2 gap-5 lg:grid-cols-5">
             {topRatedMovies.map((movie, index) => (
