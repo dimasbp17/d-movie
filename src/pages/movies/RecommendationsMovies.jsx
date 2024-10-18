@@ -62,7 +62,7 @@ const RecommendationsMovies = () => {
       ) : (
         <div className="container p-4 mx-auto md:p-0">
           <h1 className="my-10 text-2xl font-bold text-white font-poppins">
-            Top Rated Movies
+            Recommendations Movies
           </h1>
           <div className="grid grid-cols-2 gap-5 lg:grid-cols-5">
             {recommendationsMovies.map((movie, index) => (
