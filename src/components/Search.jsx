@@ -32,7 +32,7 @@ const Search = () => {
       setError(null);
       try {
         const results = await searchMovies(queryValue); // Use queryValue for search
-        setSuggestions(results) || [];
+        setSuggestions(results.length > 0 ? results : []);
         setShowDropdown(true); // Correct usage of setShowDropdown
       } catch (error) {
         setError('Failed to fetch movies.');
@@ -63,7 +63,7 @@ const Search = () => {
       <div className="absolute inset-y-0 right-0 flex items-center px-2 bg-primary">
         <IoMdSearch className="text-white size-5" />
       </div>
-      {showDropdown && suggestions.length > 0 && (
+      {showDropdown && (
         <ul
           ref={dropdown}
           className="absolute z-50 w-full mt-2 overflow-y-auto shadow-lg bg-white/100 max-h-80"
@@ -72,7 +72,7 @@ const Search = () => {
             <li className="flex justify-center p-2 text-gray-800">
               Loading...
             </li>
-          ) : (
+          ) : suggestions.length > 0 ? (
             suggestions.map((movie) => (
               <li
                 key={movie.id}
@@ -99,6 +99,10 @@ const Search = () => {
                 </Link>
               </li>
             ))
+          ) : (
+            <li className="flex justify-center p-2 text-gray-800">
+              No movies found
+            </li>
           )}
         </ul>
       )}
