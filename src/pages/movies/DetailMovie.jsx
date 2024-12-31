@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import Navbar from '../../components/Navbar';
-import { getCast, getDetailMovie, getImages } from '../../services/api';
-import { Link, useParams } from 'react-router-dom';
-import CardCast from './_partials/CardCast';
 import { Button, Card } from '@material-tailwind/react';
-import Loading from '../../components/Loading';
+import React, { useEffect, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
-import RecomendationsMoviesSlider from '../../components/RecomendationMoviesSlider';
-import { MdUpcoming } from 'react-icons/md';
 import { RiMovie2Fill } from 'react-icons/ri';
+import { Link, useParams } from 'react-router-dom';
+import Loading from '../../components/Loading';
+import Navbar from '../../components/Navbar';
+import RecomendationsMoviesSlider from '../../components/RecomendationMoviesSlider';
+import { getCast, getDetailMovie, getImages } from '../../services/api';
+import CardCast from './_partials/CardCast';
 
 const DetailMovie = () => {
   const { id } = useParams();

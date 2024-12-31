@@ -1,12 +1,11 @@
-import { Button } from '@material-tailwind/react';
 import React, { useState } from 'react';
 
 const GenreList = ({ genres, onSelectGenre }) => {
   const [selectedGenre, setSelectedGenre] = useState(28);
 
   const handleSelectGenre = (id) => {
-    setSelectedGenre(id); // Simpan genre yang dipilih di state
-    onSelectGenre(id); // Panggil callback untuk memproses genre yang dipilih
+    setSelectedGenre(id);
+    onSelectGenre(id);
   };
   return (
     <>
@@ -15,8 +14,8 @@ const GenreList = ({ genres, onSelectGenre }) => {
           <button
             className={`capitalize border rounded-full mx-2 px-4 py-2 ${
               selectedGenre === genre.id
-                ? 'bg-primary text-white border-primary' // Warna merah dengan teks putih jika dipilih
-                : 'border-none text-white bg-[#333333]' // Warna default jika tidak dipilih
+                ? 'bg-primary text-white border-primary'
+                : 'border-none text-white bg-[#333333]'
             }`}
             onClick={() => handleSelectGenre(genre.id)}
           >
