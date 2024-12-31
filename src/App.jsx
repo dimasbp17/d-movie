@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CardMovies from './components/CardMovies';
 import Home from './pages/home/Home';
 import Navbar from './components/Navbar';
@@ -13,7 +13,7 @@ import RecommendationsMovies from './pages/movies/RecommendationsMovies';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes element={<Navbar />}>
         <Route
           path="/"
@@ -53,7 +53,7 @@ const App = () => {
           element={<RecommendationsMovies />}
         />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 };
 

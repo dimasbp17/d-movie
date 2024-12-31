@@ -1,4 +1,4 @@
-import { Button, IconButton } from '@material-tailwind/react';
+import { IconButton } from '@material-tailwind/react';
 import React from 'react';
 import { MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md';
 

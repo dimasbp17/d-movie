@@ -75,7 +75,7 @@ export const getDetailMovie = async (id) => {
     const detail = await axios.get(`${baseUrl}/movie/${id}?api_key=${apiKey}`);
     return detail.data;
   } catch (error) {
-    console.error('Error fetching movie list:', error);
+    console.error('Error fetching detail movie:', error);
   }
 };
 
@@ -131,6 +131,15 @@ export const getRecomendationsPage = async (id, page = 1) => {
     return recomendations.data;
   } catch (error) {
     console.error('Error fetching movie list:', error);
-    return { results: [], total_pages: 0 }; // Mengembalikan nilai default jika terjadi error
+    return { results: [], total_pages: 0 };
+  }
+};
+
+export const getDetailCast = async (id) => {
+  try {
+    const detailCast = await axios.get(`${baseUrl}/person/${id}`);
+    return detailCast.data;
+  } catch (error) {
+    console.error('Error fetching detail cast:', error);
   }
 };
