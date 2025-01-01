@@ -17,12 +17,12 @@ const CardMovies = ({ poster, alt, title, releaseDate, rating, genre }) => {
           <p className="truncate">{title}</p>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1 text-xs">
-              <FaCalendarAlt className="text-[#FFD700] size-3" />
-              <span className="text-[10px] lg:text-xs">{releaseDate}</span>
+              <FaCalendarAlt className="text-[#FFD700] size-[10px]" />
+              <span className="text-[10px] lg:text-[11px]">{releaseDate}</span>
             </div>
             <div className="flex items-center gap-1 text-white">
               <IoStar className="size-3 text-[#FFD700]" />
-              <span className="text-[10px] lg:text-xs">{rating} / 10</span>
+              <span className="text-[10px] lg:text-[11px]">{rating} / 10</span>
             </div>
           </div>
           <div className="text-[10px] text-gray-400">{genre}</div>
