@@ -6,6 +6,7 @@ import Pagination from '../../components/Pagination';
 import { Link, useSearchParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import { RiSlideshow3Fill } from 'react-icons/ri';
+import { formatDate } from '../../utils/dateUtils';
 
 const NowPlaying = () => {
   const [nowPlaying, setNowPlaying] = useState([]);
@@ -14,7 +15,6 @@ const NowPlaying = () => {
   const [dateRange, setDateRange] = useState({});
   const [loading, setLoading] = useState(true);
 
-  // Mengambil page dari query parameter
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || 1;
 
@@ -79,7 +79,7 @@ const NowPlaying = () => {
                     poster={`${baseImageUrl}/w500/${movie.poster_path}`}
                     alt={movie.title}
                     title={movie.title}
-                    releaseDate={movie.release_date}
+                    releaseDate={formatDate(movie.release_date)}
                     rating={movie.vote_average.toFixed(1)}
                     genre={getGenreNames(movie.genre_ids)}
                   />

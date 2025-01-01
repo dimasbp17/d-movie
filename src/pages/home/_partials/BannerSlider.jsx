@@ -4,6 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { genreMovies, getPopularMovies } from '../../../services/api';
 import ArrowButtonBanner from './ArrowButtonBanner';
+import { formatDate } from '../../../utils/dateUtils';
 
 const BannerSlider = () => {
   const [banners, setBanners] = useState([]);
@@ -62,7 +63,9 @@ const BannerSlider = () => {
               <div className="absolute text-white top-60 left-10 lg:left-20 max-w-[700px]">
                 <h1 className="text-4xl font-bold">{banner.title}</h1>
                 <div className="flex items-center my-2 text-sm">
-                  <h6 className="text-gray-300 ">{banner.release_date}</h6>
+                  <h6 className="text-gray-300 ">
+                    {formatDate(banner.release_date)}
+                  </h6>
                   <span className="mx-2">|</span>
                   <h6 className="text-gray-300 ">
                     {getGenreNames(banner.genre_ids)}

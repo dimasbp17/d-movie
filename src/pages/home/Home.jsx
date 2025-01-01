@@ -1,23 +1,24 @@
+import { Button } from '@material-tailwind/react';
 import React, { useEffect, useState } from 'react';
-import Navbar from '../../components/Navbar';
+import { FaFire } from 'react-icons/fa';
+import { IoIosStar } from 'react-icons/io';
+import { IoFilterCircle } from 'react-icons/io5';
+import { MdUpcoming } from 'react-icons/md';
+import { RiSlideshow3Fill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
-import Footer from '../../components/Footer';
-import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+import CardHorizontal from '../../components/CardHorizontal';
+import Footer from '../../components/Footer';
+import GenreList from '../../components/GenreList';
+import Navbar from '../../components/Navbar';
+import { genreMovies, getDiscoverMovies } from '../../services/api';
 import BannerSlider from './_partials/BannerSlider';
 import NowPlayingSlider from './_partials/NowPlayingSlider';
-import { Button } from '@material-tailwind/react';
-import CardHorizontal from '../../components/CardHorizontal';
 import PopularMoviesSlider from './_partials/PopularMoviesSlider';
-import GenreList from '../../components/GenreList';
-import { genreMovies, getDiscoverMovies } from '../../services/api';
-import { FaFire } from 'react-icons/fa';
-import { IoFilterCircle, IoFilterCircleOutline } from 'react-icons/io5';
-import { RiSlideshow3Fill } from 'react-icons/ri';
 import TopRatedMoviesSlider from './_partials/TopRatedMoviesSlider';
-import { IoIosStar } from 'react-icons/io';
 import UpcomingMoviesSlider from './_partials/UpcomingMoviesSlider';
-import { MdUpcoming } from 'react-icons/md';
+import { formatDate } from '../../utils/dateUtils';
 
 const Home = () => {
   const [discoverMovies, setDiscoverMovies] = useState([]);
@@ -35,6 +36,14 @@ const Home = () => {
       setGenres(response.genres);
     });
   }, [selectedGenre]);
+
+  const getGenreNames = (genreIds) => {
+    return genreIds
+      .map((id) => genres.find((genre) => genre.id === id)?.name)
+      .filter(Boolean)
+      .slice(0, 3)
+      .join(', ');
+  };
 
   const baseImageUrl = import.meta.env.VITE_BASEIMGURL;
 
@@ -105,9 +114,9 @@ const Home = () => {
                     poster={`${baseImageUrl}/w500/${movie.backdrop_path}`}
                     alt={movie.title}
                     title={movie.title}
-                    release={movie.release_date}
+                    release={formatDate(movie.release_date)}
                     rating={movie.vote_average.toFixed(1)}
-                    // genre={getGenreNames(movie.genre_ids)}
+                    genre={getGenreNames(movie.genre_ids)}
                   />
                 </Link>
               ))}

@@ -8,6 +8,7 @@ import Navbar from '../../components/Navbar';
 import RecomendationsMoviesSlider from '../../components/RecomendationMoviesSlider';
 import { getCast, getDetailMovie, getImages } from '../../services/api';
 import CardCast from './_partials/CardCast';
+import { formatDate } from '../../utils/dateUtils';
 
 const DetailMovie = () => {
   const { id } = useParams();
@@ -76,7 +77,7 @@ const DetailMovie = () => {
                   <h1 className="text-5xl font-bold">{movie.title}</h1>
                   <div className="flex flex-col gap-2 text-sm lg:items-center lg:flex-row">
                     <div className="flex gap-2">
-                      <span>{movie.release_date}</span>|
+                      <span>{formatDate(movie.release_date)}</span>|
                       <div>
                         <span>
                           {movie.vote_average
