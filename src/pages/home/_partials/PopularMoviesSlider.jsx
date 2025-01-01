@@ -6,6 +6,7 @@ import ArrowButton from './ArrowButton';
 import { genreMovies, getPopularMovies } from '../../../services/api';
 import { Link } from 'react-router-dom';
 import CardHorizontal from '../../../components/CardHorizontal';
+import { formatDate } from '../../../utils/dateUtils';
 
 const PopularMoviesSlider = ({ items }) => {
   const settings = {
@@ -70,16 +71,13 @@ const PopularMoviesSlider = ({ items }) => {
       <div className="mx-[-6px]">
         <Slider {...settings}>
           {popularMovies.map((movie, index) => (
-            <div
-              key={index}
-              className=""
-            >
+            <div key={index}>
               <Link to={`/movies/detail-movies/${movie.id}`}>
                 <CardHorizontal
                   poster={`${baseImageUrl}/w500/${movie.backdrop_path}`}
                   alt={movie.title}
                   title={movie.title}
-                  release={movie.release_date}
+                  release={formatDate(movie.release_date)}
                   rating={movie.vote_average.toFixed(1)}
                   genre={getGenreNames(movie.genre_ids)}
                 />

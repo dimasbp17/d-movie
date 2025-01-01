@@ -5,6 +5,7 @@ import CardMovies from '../../components/CardMovies';
 import Pagination from '../../components/Pagination';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
+import { formatDate } from '../../utils/dateUtils';
 
 const RecommendationsMovies = () => {
   const { id } = useParams();
@@ -72,7 +73,7 @@ const RecommendationsMovies = () => {
                     poster={`${baseImageUrl}/w500/${movie.poster_path}`}
                     alt={movie.title}
                     title={movie.title}
-                    releaseDate={movie.release_date}
+                    releaseDate={formatDate(movie.release_date)}
                     rating={movie.vote_average.toFixed(1)}
                     genre={getGenreNames(movie.genre_ids)}
                   />

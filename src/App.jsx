@@ -10,6 +10,7 @@ import NowPlaying from './pages/movies/NowPlaying';
 import UpcomingMovies from './pages/movies/UpcomingMovies';
 import DetailMovie from './pages/movies/DetailMovie';
 import RecommendationsMovies from './pages/movies/RecommendationsMovies';
+import AllMovies from './pages/movies/AllMovies';
 
 const App = () => {
   return (
@@ -51,6 +52,10 @@ const App = () => {
         <Route
           path="/movies/recommendations-movies/:id"
           element={<RecommendationsMovies />}
+        />
+        <Route
+          path="/movies"
+          element={<AllMovies />}
         />
       </Routes>
     </Router>

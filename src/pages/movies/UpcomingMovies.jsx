@@ -6,6 +6,7 @@ import Pagination from '../../components/Pagination';
 import { Link, useSearchParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import { MdUpcoming } from 'react-icons/md';
+import { formatDate } from '../../utils/dateUtils';
 
 const UpcomingMovies = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
@@ -79,7 +80,7 @@ const UpcomingMovies = () => {
                     poster={`${baseImageUrl}/w500/${movie.poster_path}`}
                     alt={movie.title}
                     title={movie.title}
-                    releaseDate={movie.release_date}
+                    releaseDate={formatDate(movie.release_date)}
                     rating={movie.vote_average.toFixed(1)}
                     genre={getGenreNames(movie.genre_ids)}
                   />
