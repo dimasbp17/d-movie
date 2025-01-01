@@ -6,6 +6,7 @@ import ArrowButton from './ArrowButton';
 import { genreMovies, getTopRatedMovies } from '../../../services/api';
 import { Link } from 'react-router-dom';
 import CardMovies from '../../../components/CardMovies';
+import { formatDate } from '../../../utils/dateUtils';
 
 const TopRatedMoviesSlider = () => {
   const settings = {
@@ -79,7 +80,7 @@ const TopRatedMoviesSlider = () => {
                   poster={`${baseImageUrl}/w500/${movie.poster_path}`}
                   alt={movie.title}
                   title={movie.title}
-                  releaseDate={movie.release_date}
+                  releaseDate={formatDate(movie.release_date)}
                   rating={movie.vote_average.toFixed(1)}
                   genre={getGenreNames(movie.genre_ids)}
                 />
